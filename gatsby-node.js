@@ -61,9 +61,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (portfolioPosts.length > 0) {
     portfolioPosts.forEach((post, index) => {
-      const previousPostSlug = index === 0 ? null : posts[index - 1].slug
+      const previousPostSlug = index === 0 ? null : portfolioPosts[index - 1].slug
       const nextPostSlug =
-        index === posts.length - 1 ? null : posts[index + 1].slug
+        index === portfolioPosts.length - 1 ? null : portfolioPosts[index + 1].slug
 
       createPage({
         path: `/artists/${post.slug}/`,
