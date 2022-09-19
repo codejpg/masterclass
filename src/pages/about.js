@@ -38,9 +38,6 @@ query AboutPageQuery {
       description {
         raw
       }
-      icons {
-        gatsbyImage
-      }
     }
   }
 
