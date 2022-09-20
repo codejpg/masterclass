@@ -106,6 +106,9 @@ export const pageQuery = graphql`
       description {
         raw
       }
+      body {
+        raw
+      }
       
     }
     previous: contentfulPortfolioPost(slug: { eq: $previousPostSlug }) {

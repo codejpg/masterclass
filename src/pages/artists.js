@@ -40,6 +40,9 @@ export const pageQuery = graphql`
         description {
           raw
         }
+        body {
+          raw
+        }
       }
     }
   }
