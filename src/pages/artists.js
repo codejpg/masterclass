@@ -37,7 +37,9 @@ export const pageQuery = graphql`
         }
         title
         slug
-        description
+        description {
+          raw
+        }
       }
     }
   }

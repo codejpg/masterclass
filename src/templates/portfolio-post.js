@@ -103,7 +103,9 @@ export const pageQuery = graphql`
           src
         }
       }
-      description
+      description {
+        raw
+      }
       
     }
     previous: contentfulPortfolioPost(slug: { eq: $previousPostSlug }) {

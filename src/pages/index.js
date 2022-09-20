@@ -53,7 +53,9 @@ export const pageQuery = graphql`
     }
     allContentfulPortfolioPost {
       nodes {
-        description
+        description {
+          raw
+        }
        
         heroImage {
           gatsbyImage(
