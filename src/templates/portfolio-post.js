@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
+//import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
@@ -17,9 +17,9 @@ class PortfolioPostTemplate extends React.Component {
     const post = get(this.props, 'data.contentfulPortfolioPost')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
-    const plainTextDescription = documentToPlainTextString(
-      JSON.parse(post.description.raw)
-    )
+   // const plainTextDescription = documentToPlainTextString(
+    //  JSON.parse(post.text.raw)
+    //)
 
     
     const options = {
@@ -40,7 +40,8 @@ class PortfolioPostTemplate extends React.Component {
       <Layout location={this.props.location}>
         <Seo
           title={post.title}
-          description={plainTextDescription}
+          description={post.description}
+         
           image={`http:${post.heroImage.resize.src}`}
         />
         <Hero
