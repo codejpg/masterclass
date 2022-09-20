@@ -54,9 +54,7 @@ export const pageQuery = graphql`
     allContentfulPortfolioPost {
       nodes {
         description
-        text {
-          raw
-        }
+       
         heroImage {
           gatsbyImage(
             layout: FULL_WIDTH
