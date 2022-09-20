@@ -104,8 +104,8 @@ export const pageQuery = graphql`
           src
         }
       }
-
-      description {
+      description
+      text {
         raw
       }
     }
