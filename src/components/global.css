@@ -32,13 +32,39 @@ body {
   font-weight: var(--body);
   line-height: var(--default);
   margin: 0;
+
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+div:hover > #hov{
+  display : block;
+
+}
+
+#hov{
+  display:none;
+  position:absolute;
+  font-style: italic;
+  font-size:20px;
+  font-weight: bold;
+  color: red;
+}
+.site{
+  
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+  .site-content {
+    flex: 1;
+}
+
 
 img {
   display: block;
   width: 100%;
+  cursor: none;
 }
 
 h1,

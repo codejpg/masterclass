@@ -11,10 +11,14 @@ class Template extends React.Component {
 
     return (
       <>
+     
         <Seo />
         <Navigation />
-        <main>{children}</main>
+        <div className="site">
+        <main className="site-content">{children}</main>
+        
         <Footer />
+        </div>
       </>
     )
   }

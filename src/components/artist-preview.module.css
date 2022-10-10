@@ -3,8 +3,8 @@
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(580px, 1fr));
-  grid-gap: var(--space-3xl);
+  grid-template-columns: repeat(auto-fit, minmax(1fr));
+  grid-gap: var(--space-null);
 }
 
 .title {
@@ -17,6 +17,8 @@
 .container {
   width: 100%;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .content {

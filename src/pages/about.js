@@ -1,37 +1,47 @@
-import * as React from "react"
+import React from 'react'
+import { graphql } from 'gatsby'
+import get from 'lodash/get'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import * as styles from '../components/about.css'
+
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
+
 import Container from '../components/container'
-import get from 'lodash/get'
-import { graphql } from 'gatsby'
 
 class About extends React.Component {
     render() {
-      const post = get(this, 'props.data.allContentfulAbout.nodes')
+      const posts = get(this, 'props.data.allContentfulAbout.nodes')
   
+      if (!posts) return null
+      if (!Array.isArray(posts)) return null
+    
       return (
+        <Container>
+            {posts.map((post) => {
+              return (
 
-            <Layout location={this.props.location}>
-                <Seo title="About Page" />
-                <Hero 
-                title={post.title}
-                content={post.description}
-                />
-                <div>test div</div>
-           
-            </Layout>
+        <Layout location={this.props.location}>
+          <Seo title={post.title} />
+          <Hero title={post.title}  
+          />
 
-
-        )
-
+          <div className="content">
+            {post.description?.raw && renderRichText(post.description)}
+            </div>
+        </Layout>
+              )
+            })}
+        </Container>
+      )
     }
-}
+  }
 
 export default About
     
 export const pageQuery = graphql`
-query AboutPageQuery {
+query AboutQuery {
   allContentfulAbout {
     nodes {
       title

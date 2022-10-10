@@ -8,6 +8,7 @@ import ArticlePreview from '../components/article-preview'
 import ArtistPreview from '../components/artist-preview'
 
 class RootIndex extends React.Component {
+ 
   render() {
     //const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
     const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
@@ -15,13 +16,9 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Hero
-          image={author.heroImage.gatsbyImage}
-          title={author.title}
-          content={author.description}
-        />
-        {/*<ArticlePreview posts={posts} />*/}
-        <ArtistPreview posts={posts} />
+        
+        <ArtistPreview  posts={posts} />
+
       </Layout>
     )
   }

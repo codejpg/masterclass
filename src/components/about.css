@@ -1,0 +1,25 @@
+.content {
+    float: left;
+    max-width: 40rem;
+    width: 85%;
+    height: 30%;
+    padding: var(--space-2xl) var(--size-gutter) 0;
+    position: absolute;
+    z-index: 1000;
+
+  }
+
+  .article {
+    display: grid;
+    font-size: var(--text-prose);
+    gap: var(--space-xl);
+    letter-spacing: var(--text-prose-tracking);
+    line-height: var(--loose);
+    padding: var(--size-gutter) var(--size-gutter) calc(var(--size-gutter) * 2);
+
+  }
+  
+  .body {
+    max-width: 48rem;
+
+  }

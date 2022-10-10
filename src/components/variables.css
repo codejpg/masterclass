@@ -17,6 +17,7 @@
   --radius-sm: 4px;
 
   /* spacing */
+  --space-null: 0px;
   --space-sm: 4px;
   --space-md: 8px;
   --space-lg: 16px;
