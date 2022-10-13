@@ -22,11 +22,11 @@ const Navigation = () => (
       </li>
       <li className={styles.navigationItem}>
         <Link to="/about/" activeClassName="active">
-          Info/about
+          Info
         </Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/about/" activeClassName="active">
+        <Link to="/upcoming/" activeClassName="active">
           Upcoming
         </Link>
       </li>

@@ -65,13 +65,14 @@
   --text-lead: var(--text-lg);
   --text-prose: var(--text-md);
   --text-title: var(--text-3xl);
+  --text-subtitle: var(--text-2xl);
   /* tracking */
   --text-prose-tracking: -0.011em;
 
   /* size */
   --size-gutter: var(--space-2xl);
   --size-logo: var(--space-2xl);
-  --size-max-width: 80rem;
+  --size-max-width: 120rem;
 }
 
 @media (min-width: 480px) {

@@ -37,9 +37,6 @@ export const pageQuery = graphql`
         }
         title
         slug
-        description {
-          raw
-        }
         body {
           raw
         }

@@ -3,14 +3,15 @@ import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
-import { BLOCKS } from '@contentful/rich-text-types'
+import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Tags from '../components/tags'
-import * as styles from './blog-post.module.css'
+import * as styles from './portfolio-post.module.css'
 
 class PortfolioPostTemplate extends React.Component {
   render() {
@@ -31,6 +32,7 @@ class PortfolioPostTemplate extends React.Component {
            />
          )
         },
+        
       },
     };
 
@@ -38,22 +40,27 @@ class PortfolioPostTemplate extends React.Component {
       <Layout location={this.props.location}>
         <Seo
           title={post.title}
-          description={post.description}
           image={`http:${post.heroImage.resize.src}`}
         />
         <Hero
           image={post.heroImage?.gatsbyImage}
           title={post.title}
-          content={post.description}
-
         />
         <div className={styles.container}>
-          <span className={styles.meta}>
-            {post.artist?.name} &middot;{' '}
-          </span>
           <div className={styles.article}>
             <div className={styles.body}>
               {post.body?.raw && renderRichText(post.body, options)}
+            </div>
+            <span className={styles.meta}>
+            {post.artist?.name} &middot;{' '}
+            {post.artist?.title} &middot;{' '}
+            <a href={post.artist?.website} target="_blank">
+            {post.artist?.website}
+                      </a>
+           
+          </span>
+          <div className={styles.bio}>
+            {post.artist.shortBio?.raw && renderRichText(post.artist.shortBio, options)}
             </div>
             <Tags tags={post.tags} />
             {(previous || next) && (
@@ -77,6 +84,7 @@ class PortfolioPostTemplate extends React.Component {
               </nav>
             )}
           </div>
+          
         </div>
       </Layout>
     )
@@ -103,11 +111,17 @@ export const pageQuery = graphql`
           src
         }
       }
-      description {
-        raw
-      }
+    
       body {
         raw
+      }
+      artist {
+        name
+        shortBio {
+          raw
+        }
+        title
+        website
       }
       
     }
