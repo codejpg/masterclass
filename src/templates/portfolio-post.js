@@ -45,23 +45,25 @@ class PortfolioPostTemplate extends React.Component {
         <Hero
           image={post.heroImage?.gatsbyImage}
           title={post.title}
+          subtitle={post.artist?.name}
         />
         <div className={styles.container}>
           <div className={styles.article}>
             <div className={styles.body}>
               {post.body?.raw && renderRichText(post.body, options)}
             </div>
-            <span className={styles.meta}>
-            {post.artist?.name} &middot;{' '}
-            {post.artist?.title} &middot;{' '}
-            <a href={post.artist?.website} target="_blank">
-            {post.artist?.website}
-                      </a>
-           
-          </span>
-          <div className={styles.bio}>
-            {post.artist.shortBio?.raw && renderRichText(post.artist.shortBio, options)}
+            <div className={styles.artistBox}>
+              <span className={styles.meta}>
+              <h1>{post.artist?.name}</h1> 
+              {post.artist?.title} &middot;{' '}
+              <a href={post.artist?.website} target="_blank">
+              {post.artist?.website}</a>
+              </span>
+          
+            <div className={styles.bio}>
+              {post.artist.shortBio?.raw && renderRichText(post.artist.shortBio, options)}
             </div>
+          </div>
             <Tags tags={post.tags} />
             {(previous || next) && (
               <nav>

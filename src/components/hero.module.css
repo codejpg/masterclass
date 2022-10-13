@@ -23,11 +23,10 @@
 
 .details {
   left: var(--size-gutter);
-
-  max-width: 40rem;
+  max-width: 70rem;
   width: 85%;
   justify-content: flex-start;
-  padding: var(--space-2xl) var(--size-gutter) 0 0;
+  padding: var(--space-2xl);
 }
 
 .title {
@@ -36,7 +35,11 @@
   font-weight: var(--extrabold);
   line-height: var(--solid);
   margin: 0 0 var(--space-xl);
-  padding: var(--space-2xl) var(--size-gutter) 0 ;
+
+}
+.subtitle{
+  font-size: var(--text-subtitle);
+  padding-left:  0;
 }
 
 .content {
@@ -57,7 +60,7 @@
   }
 
   .details {
-    max-width: 44rem;
+    max-width: 64rem;
     padding: var(--space-3xl) var(--size-gutter) 0;
   }
 }
@@ -69,6 +72,6 @@
 
   .details {
     left: var(--size-gutter);
-    padding: var(--space-3xl) var(--size-gutter) 0 0;
+    padding: var(--space-2xl) 0 0 var(--size-gutter)  ;
   }
 }

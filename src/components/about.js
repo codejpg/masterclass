@@ -15,7 +15,7 @@ const About = ({image, title, subtitle, content }) => (
            <li>
             <div className={styles.content}>
                 <h1 className={styles.title}>{title}</h1>
-                <h1 className={styles.subtitle}>{subtitle}</h1>
+                <h2 className={styles.subtitle}>{subtitle}</h2>
                 <div>
                 {content && (
                     <div className={styles.content}>{renderRichText(content)}</div>

@@ -15,6 +15,10 @@
   margin: 0 0 var(--space-xl);
 }
 
+.subtitle{
+  font-size: var(--text-subtitle);
+}
+
 .link {
   text-decoration: none;
 }
