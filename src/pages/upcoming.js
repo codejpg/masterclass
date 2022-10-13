@@ -29,7 +29,7 @@ class UpcomingPage extends React.Component {
 export default UpcomingPage
     
 export const pageQuery = graphql`
-query AboutQuery {
+query UpcomingQuery {
   allContentfulAbout {
     nodes {
       title
