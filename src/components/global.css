@@ -16,8 +16,35 @@
   src: url('/fonts/Inter-italic.var.woff2?v=3.19') format('woff2');
 }
 
+@font-face {
+  font-family: 'Apercu Bold var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Bold';
+  src: url('/fonts/ApercuBold.woff2?v=3.19') format("woff2");
+}
+
+@font-face {
+  font-family: 'Apercu var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/fonts/ApercuRegular.woff2') format("woff2");
+}
+
+@font-face {
+  font-family: 'Apercu Mono var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Mono';
+  src: url('/fonts/ApercuMono.woff2') format("woff2");
+}
 html {
   scroll-behavior: smooth;
+  cursor: none;
 }
 
 html * {
@@ -84,7 +111,9 @@ a {
 
 a:hover {
   color: var(--primary);
+  cursor: none;
 }
+
 
 a.active {
   font-weight: var(--bold);
@@ -124,4 +153,26 @@ tt:after {
 pre,
 code {
   font-family: var(--font-monospace);
+}
+
+#cursor {
+  display: var(--cursor-display);
+  position: fixed;
+  --size: 25px;
+  top: 0;
+  left: 0;
+  height: var(--size);
+  width: var(--size);
+  background-color: #FFF;
+  border-radius: 50%;
+  transform: translate3d(
+    calc(100vw * var(--cursor-x) - var(--size) / 2), 
+    calc(100vh * var(--cursor-y) - var(--size) / 2), 
+    0);
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+a:hover ~ #cursor,a:hover + #cursor {
+  --size: 40px;
 }

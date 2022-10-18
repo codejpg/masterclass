@@ -4,7 +4,6 @@
     font-style: italic;
     max-width: var(--size-max-width);
     position: relative;
-    background-color: rgb(239, 239, 239);
   }
 
   .bio {
@@ -13,13 +12,12 @@
     font-style: italic;
     max-width: 80vw;
     position: relative;
-    background-color: rgb(239, 239, 239);
     padding-top: var(--size-gutter); 
   }
 
   .artistBox{
     margin: 0;
-    background-color: rgb(239, 239, 239);
+    background-color: var(--white);
     border-radius: 10px;
     padding: 0 var(--size-gutter) var(--size-gutter) var(--size-gutter);
 
