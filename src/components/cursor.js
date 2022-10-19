@@ -1,9 +1,12 @@
-
+import React from 'react'
 const lerp = (a, b, n) => (1 - n) * a + n * b;
+const isBrowser = typeof window !== "undefined"
 
-class Cursor{
+class Cursor extends React.Component{
   constructor() {
     // config
+
+    super();
     this.target = { x: 0.5, y: 0.5 }; // mouse position
     this.cursor = { x: 0.5, y: 0.5 }; // cursor position
     this.speed = 0.2;
@@ -15,8 +18,10 @@ class Cursor{
   }
   onMouseMove(e) {
     //get normalized mouse coordinates [0, 1]
-    this.target.x = e.clientX / window.innerWidth;
-    this.target.y = e.clientY / window.innerHeight;
+    if (isBrowser) {
+        this.target.x = e.clientX / window.innerWidth;
+        this.target.y = e.clientY / window.innerHeight;
+    }
     // trigger loop if no loop is active
     if (!this.raf) this.raf = requestAnimationFrame(this.render);
     console.log(this.target.x);
@@ -28,6 +33,9 @@ class Cursor{
     document.getElementById("cursor").style.display = 'none';
   }
   render() {
+    if (typeof window === `undefined`) {
+        return(<></>);
+    }
     //calculate lerped values
     this.cursor.x = lerp(this.cursor.x, this.target.x, this.speed);
     this.cursor.y = lerp(this.cursor.y, this.target.y, this.speed);
@@ -48,10 +56,13 @@ class Cursor{
   }
   init() {
     this.bindAll();
+    if (isBrowser) {
     window.addEventListener("mousemove", this.onMouseMove);
     window.addEventListener("mouseout", this.onMouseOut);
     this.raf = requestAnimationFrame(this.render);
+    }
+    
   }
 }
 
-new Cursor();
+export default Cursor;

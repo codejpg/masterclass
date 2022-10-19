@@ -7,6 +7,9 @@ module.exports = {
     title: "Working With Waste",
     description: "IKF Masterclass",
   },
+  flags: {
+    DEV_SSR: true
+  },
   plugins: [
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
@@ -21,4 +24,5 @@ module.exports = {
       },
     },
   ],
+  
 };

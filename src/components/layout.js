@@ -17,7 +17,7 @@ class Template extends React.Component {
         <Navigation />
         <div className="site">
         <main className="site-content">{children}</main>
-     
+          <Cursor></Cursor>
         <div id="cursor"></div>
         <Footer />
         </div>
