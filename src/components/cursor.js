@@ -1,11 +1,9 @@
-import React from 'react'
 
 const lerp = (a, b, n) => (1 - n) * a + n * b;
 
-class Cursor extends React.Component {
+class Cursor{
   constructor() {
     // config
-    super();
     this.target = { x: 0.5, y: 0.5 }; // mouse position
     this.cursor = { x: 0.5, y: 0.5 }; // cursor position
     this.speed = 0.2;
@@ -56,4 +54,4 @@ class Cursor extends React.Component {
   }
 }
 
-export default Cursor;
+new Cursor();
