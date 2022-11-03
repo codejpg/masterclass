@@ -11,6 +11,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
+        allContentfulPerson {
+          nodes {
+            name
+            slug
+          }
+        }
         allContentfulBlogPost {
           nodes {
             title
@@ -23,12 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
           }
         }
-        allContentfulPerson {
-          nodes {
-            title
-            slug
-          }
-        }
+        
       }
     `
   )
@@ -95,8 +96,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: personPost,
         context: {
           slug: post.slug,
-          previousPostSlug,
-          nextPostSlug,
         },
       })
     })

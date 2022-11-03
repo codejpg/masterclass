@@ -10,13 +10,30 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
-import Tags from '../components/tags'
+//import Tags from '../components/tags'
 import * as styles from './portfolio-post.module.css'
 
 class PersonPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulPortfolioPost')
     const person = get(this.props, 'data.contentfulPerson')
+    //const post = get(this.props, 'data.contentfulPerson.projects')
+    const previous = get(this.props, 'data.previous')
+    const next = get(this.props, 'data.next')
+
+    const options = {
+        renderNode: {
+          [BLOCKS.EMBEDDED_ASSET]: (node) => {
+          const { gatsbyImage, description } = node.data.target
+          return (
+             <GatsbyImage
+                image={getImage(gatsbyImage)}
+                alt={description}
+             />
+           )
+          },
+          
+        },
+      };
 
     return (
       <Layout location={this.props.location}>
@@ -29,20 +46,46 @@ class PersonPostTemplate extends React.Component {
         />
         <div className={styles.container}>
           <div className={styles.article}>
-            <div className={styles.body}>
-              {person.body?.raw && renderRichText(person.shortBio)}
-            </div>
+           
             <div className={styles.artistBox}>
               <span className={styles.meta}>
               <h1>{person.name}</h1> 
               {person.title} &middot;{' '}
               <a href={person.website} target="_blank">
               {person.website}</a>
+              <div className={styles.body}>
+              { renderRichText(person.shortBio)}
+            </div>
+         
+ 
               </span>
-          
+              Projects
+            <Link to={`/artists/${person.projects?.slug}`}>
+                {person.projects?.slug} test
+            </Link>
           </div>
          
-         
+       
+            {(previous || next) && (
+              <nav>
+                <ul className={styles.articleNavigation}>
+                  {previous && (
+                    <li>
+                      <Link to={`/artists/${previous.slug}`} rel="prev">
+                        ← {previous.name}
+                      </Link>
+                    </li>
+                  )}
+                  {next && (
+                    <li>
+                      <Link to={`/artists/${next.slug}`} rel="next">
+                        {next.name} →
+                      </Link>
+                    </li>
+                  )}
+                </ul>
+              </nav>
+            )}
           </div>
           
         </div>
@@ -54,17 +97,59 @@ class PersonPostTemplate extends React.Component {
 export default PersonPostTemplate
 
 export const pageQuery = graphql`
-query PersonPostBySlug{
-    allContentfulPerson {
-        nodes {
-          name
-          shortBio {
+query PersonBySlug(
+    $slug: String!
+    $previousPostSlug: String
+    $nextPostSlug: String
+  ) {
+    contentfulPerson(slug: { eq: $slug }) {
+        name
+        shortBio {
             raw
-          }
-          title
-          website
-          contentful_id
         }
+        title
+        website
+        slug
+          
+        portfolio_post {
+            title
+            heroImage {
+                gatsbyImage
+            }
+            slug
+        }
+        projects {
+            heroImage {
+                gatsbyImage
+            }
+            title
+            slug
+            }
+         
+        
       }
+      previous: contentfulPerson(slug: { eq: $previousPostSlug }) {
+        slug
+        title
+        name
+      }
+      next: contentfulPerson(slug: { eq: $nextPostSlug }) {
+        slug
+        title
+        name
+      }
+      contentfulPortfolioPost {
+        slug
+        title
+        artist {
+          name
+        }
+        heroImage {
+          gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
+          resize(height: 630, width: 1200) {
+            src
+          }
+        }
+    }
     }
 `

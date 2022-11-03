@@ -21,7 +21,7 @@ const ParticipantsPreview = ({ posts }) => {
 
             <li key={post.slug}>
               <div className={styles.container}>
-              <Link to={`/participants/${post.slug}`} className={styles.link}>
+              <Link to={`/participants/${post.slug}`} className={styles.link} >
               <h1 className={styles.content}>{post.name}</h1>
           {/*
               <GatsbyImage onMouseOver={handleHover(1)} className={styles.image} alt="" image={post.heroImage.gatsbyImage} />
