@@ -24,9 +24,9 @@ class RootIndex extends React.Component {
         subtitle="Working with Waste Research Group: Workshop" 
         link1="/artists" 
         link1name="Overview" 
-        link2="/artists" 
+        link2="/participants" 
         link2name="Participants + Projects" 
-        link3="/artists" 
+        link3="/participants" 
         link3name="Forum" 
         link4="/artists" 
         link4name="Shared Resource"/>

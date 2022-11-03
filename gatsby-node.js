@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Define a template for blog post
   const blogPost = path.resolve('./src/templates/blog-post.js')
   const portfolioPost = path.resolve('./src/templates/portfolio-post.js')
+  const personPost = path.resolve('./src/templates/person-post.js')
 
   const result = await graphql(
     `
@@ -17,6 +18,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
         allContentfulPortfolioPost {
+          nodes {
+            title
+            slug
+          }
+        }
+        allContentfulPerson {
           nodes {
             title
             slug
@@ -36,6 +43,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allContentfulBlogPost.nodes
   const portfolioPosts = result.data.allContentfulPortfolioPost.nodes
+  const personPosts = result.data.allContentfulPerson.nodes
 
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
@@ -76,7 +84,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+  if (personPosts.length > 0) {
+    personPosts.forEach((post, index) => {
+      const previousPostSlug = index === 0 ? null : personPosts[index - 1].slug
+      const nextPostSlug =
+        index === personPosts.length - 1 ? null : personPosts[index + 1].slug
 
+      createPage({
+        path: `/participants/${post.slug}/`,
+        component: personPost,
+        context: {
+          slug: post.slug,
+          previousPostSlug,
+          nextPostSlug,
+        },
+      })
+    })
+  }
   require("dotenv").config({
     path: `.env.${process.env.NODE_ENV}`,
   })
