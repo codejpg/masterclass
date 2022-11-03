@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    justify-content: wrap;
+    max-width: var(--size-max-width);
+    align-items: center;
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--size-gutter);
+  }
+  
+  .list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    gap: var(--space-xl);
+  }
+  
+  .listItem {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .dropdown-content{
+
+    position: absolute;
+    min-width: 160px;
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  .listItem:hover .dropdown-content{
+    display: block;
+  }
+
+
+  .listItem a {
+    border-bottom: 1.5px solid transparent;
+    color: currentColor;
+    text-decoration: none;
+  }
+  
+  .listItem a:hover {
+    border-bottom-color: var(--primary);
+    color: var(--primary);
+  }
+  

@@ -3,12 +3,11 @@ const lerp = (a, b, n) => (1 - n) * a + n * b;
 const isBrowser = typeof window !== "undefined"
 
 class Cursor extends React.Component{
-  constructor() {
+  constructor(props) {
     // config
-
     super();
-    this.target = { x: 0.5, y: 0.5 }; // mouse position
-    this.cursor = { x: 0.5, y: 0.5 }; // cursor position
+    this.target = { x: -0.5, y: -0.5 }; // mouse position
+    this.cursor = { x: -0.5, y: -0.5 }; // cursor position
     this.speed = 0.2;
     this.init();
   }

@@ -6,7 +6,7 @@
     'Segoe UI Symbol';
   --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
-  --font-serif: 'Apercu Mono var', Times, serif;
+  --font-serif: 'LibreBaskerville', Times, serif;
 
   /* palette */
   --white: #fff;
@@ -54,6 +54,8 @@
   --text-4xl: 48px;
   --text-5xl: 64px;
   --text-6xl: 76px;
+
+  --text-huge-scaled: 3em;
 
   /* tokens */
   /* colors */

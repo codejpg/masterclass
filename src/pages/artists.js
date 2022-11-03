@@ -6,16 +6,18 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ArtistPreview from '../components/artist-preview'
+import ParticipantPreview from '../components/participants-preview'
 
 class ArtistIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
-
+    const person = get(this, 'props.data.allContentfulPerson.nodes')
     return (
       <Layout location={this.props.location}>
         <Seo title="Artist" />
         <Hero title="Artist" />
-        <ArtistPreview posts={posts} />
+        {/*<ArtistPreview posts={posts} />*/}
+        <ParticipantPreview  posts={person} />
       </Layout>
     )
   }
@@ -40,6 +42,18 @@ export const pageQuery = graphql`
         body {
           raw
         }
+      }
+    }
+    allContentfulPerson {
+      nodes {
+        name
+        shortBio {
+          raw
+        }
+        title
+        website
+        contentful_id
+        slug
       }
     }
   }
