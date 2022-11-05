@@ -114,13 +114,6 @@ query PersonBySlug(
         website
         slug
         
-        portfolio_post {
-            title
-            heroImage {
-                gatsbyImage
-            }
-            slug
-        }
         project {
             heroImage {
                 gatsbyImage
