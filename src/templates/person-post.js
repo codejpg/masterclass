@@ -116,7 +116,7 @@ query PersonBySlug(
         
         project {
             heroImage {
-                gatsbyImage
+                gatsbyImage(width: 100)
             }
             title
             slug
