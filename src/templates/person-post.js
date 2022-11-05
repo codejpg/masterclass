@@ -39,18 +39,17 @@ class PersonPostTemplate extends React.Component {
       <Layout location={this.props.location}>
         <Seo
           title={person.name}
-
+       
         />
         <Hero
           title={person.name}
+          subtitle={person.title}
         />
         <div className={styles.container}>
           <div className={styles.article}>
            
             <div className={styles.artistBox}>
               <span className={styles.meta}>
-              <h1>{person.name}</h1> 
-              {person.title} &middot;{' '}
               <a href={person.website} target="_blank">
               {person.website}</a>
               <div className={styles.body}>
@@ -59,7 +58,7 @@ class PersonPostTemplate extends React.Component {
          
  
               </span>
-              Research Project
+              {person.project?.slug && <h3>Research Project</h3>}
             <Link to={`/artists/${person.project?.slug}`}>
                 <p>{person.project?.title} </p>
                 <GatsbyImage

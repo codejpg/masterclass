@@ -45,7 +45,7 @@ class PortfolioPostTemplate extends React.Component {
         <Hero
           image={post.heroImage?.gatsbyImage}
           title={post.title}
-          subtitle={post.artist?.name}
+          subtitleLink={post.artist?.name}
           link={post.artist?.slug}
         />
         <div className={styles.container}>

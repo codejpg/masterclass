@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 import * as styles from './hero.module.css'
 
-const Hero = ({ image, title, subtitle, content, link }) => (
+const Hero = ({ image, title, subtitle, content, link , subtitleLink}) => (
   <div className={styles.hero}>
     
     {image && (
@@ -13,7 +13,8 @@ const Hero = ({ image, title, subtitle, content, link }) => (
     )}
     <div className={styles.details}>
       <h1 className={styles.title}>{title}</h1>
-      <Link to={`/participants/${link}`}><h1 className={styles.subtitle}>{subtitle}</h1></Link>
+      <h1 className={styles.subtitle}>{subtitle}</h1>
+      <Link to={`/participants/${link}`}><h1 className={styles.subtitle}>{subtitleLink}</h1></Link>
       {content && (
         <div className={styles.content}>{renderRichText(content)}</div>
       )}

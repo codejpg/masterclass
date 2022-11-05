@@ -19,7 +19,7 @@
     margin: 0;
     background-color: var(--white);
     border-radius: 10px;
-    padding: 0 var(--size-gutter) var(--size-gutter) var(--size-gutter);
+    padding: var(--size-gutter);
 
   }
   
