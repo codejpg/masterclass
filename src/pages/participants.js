@@ -56,7 +56,7 @@ export const pageQuery = graphql`
         slug
         project {
           heroImage {
-              gatsbyImage
+            gatsbyImage(width: 100)
          }
           title
           slug
