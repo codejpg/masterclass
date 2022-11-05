@@ -1,10 +1,18 @@
 @font-face {
-  font-family: 'Inter var';
+  font-family: 'OSMelly';
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url('/fonts/Inter-roman.var.woff2?v=3.19') format('woff2');
+  src: url('/fonts/OSMellySansv0.88-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'OSMelly Irregular';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/fonts/OSMellySansv0.88-Irregular.woff2') format('woff2');
 }
 
 @font-face {
@@ -54,7 +62,7 @@ html * {
 body {
   background: var(--background);
   color: var(--text-color);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 16px;
   font-weight: var(--body);
   line-height: var(--default);
@@ -88,11 +96,7 @@ div:hover > #hov{
 }
 
 
-img {
-  display: block;
-  width: 100%;
 
-}
 
 h1,
 h2,
@@ -111,6 +115,9 @@ a {
 
 a:hover {
   color: var(--primary);
+  font-family: var(--font-irregular);
+  text-decoration: none;
+  color: black;
 }
 
 
@@ -174,4 +181,8 @@ code {
 
 a:hover ~ #cursor,a:hover + #cursor {
   --size: 40px;
+}
+
+.pageTitle{
+  margin-left: var(--size-gutter);
 }

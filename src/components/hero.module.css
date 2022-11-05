@@ -17,7 +17,8 @@
   */
   height: 61.8vh;
   max-height: 560px;
-  width: 100%;
+  width: 60vw;
+  margin: var(--size-gutter);
   
 }
 
@@ -63,11 +64,14 @@
     max-width: 64rem;
     padding: var(--space-3xl) var(--size-gutter) 0;
   }
+  .image {
+    width: 100%;
+  }
 }
 
 @media (min-width: 1024px) {
   .image {
-    width: 100%;
+    width: 80vw;
   }
 
   .details {

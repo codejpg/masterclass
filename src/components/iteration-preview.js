@@ -8,7 +8,7 @@ const Menu = styled.a`
     display: ${props => (props.active ? 'block' : 'none')};
   }
 `;
-const Subtitle = styled.p`
+const Subtitle = styled.span`
   span {
     display: ${props => (props.active ? 'block' : 'none')};
   }
@@ -24,28 +24,23 @@ class Iterations extends Component  {
 render(){
   return (
 
-  <div role="navigation" className={styles.container} aria-label="Main">
+  <div role="navigation" className="nav-box" aria-label="Main">
     <ul className={styles.list}>
-      <li><div onClick={this.toggleVisible} >
+      <div className="listItem" onClick={this.toggleVisible} >
         {this.props.name} 
       </div>
-      </li>
-      {this.props.subtitle ? <Subtitle className="menu" active={this.state.isVisible}>
+      {this.props.subtitle ? <Subtitle className="subtitle" active={this.state.isVisible}>
         <span>{this.props.subtitle}</span>
       </Subtitle> : null}
-
       {this.props.link1 ? <Menu className="menu" active={this.state.isVisible} href={this.props.link1}>
         <span>{this.props.link1name}</span>
       </Menu> : null}
-     
       {this.props.link2 ? <Menu className="menu" active={this.state.isVisible} href={this.props.link2}>
         <span>{this.props.link2name}</span>
       </Menu> : null}
-
       {this.props.link3 ? <Menu className="menu" active={this.state.isVisible} href={this.props.link3}>
         <span>{this.props.link3name}</span>
       </Menu> : null}
-      
       {this.props.link4 ? <Menu className="menu" active={this.state.isVisible} href={this.props.link4}>
         <span>{this.props.link4name}</span>
       </Menu> : null}

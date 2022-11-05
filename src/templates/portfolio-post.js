@@ -46,15 +46,16 @@ class PortfolioPostTemplate extends React.Component {
           image={post.heroImage?.gatsbyImage}
           title={post.title}
           subtitle={post.artist?.name}
+          link={post.artist?.slug}
         />
         <div className={styles.container}>
           <div className={styles.article}>
             <div className={styles.body}>
               {post.body?.raw && renderRichText(post.body, options)}
             </div>
-            <div className={styles.artistBox}>
+            {/*<div className={styles.artistBox}>
               <span className={styles.meta}>
-              <h1>{post.artist?.name}</h1> 
+              <Link to={`/participants/${post.artist?.slug}`} ><h1>{post.artist?.name}</h1> </Link>
               {post.artist?.title} &middot;{' '}
               <a href={post.artist?.website} target="_blank">
               {post.artist?.website}</a>
@@ -63,7 +64,7 @@ class PortfolioPostTemplate extends React.Component {
             <div className={styles.bio}>
               {post.artist.shortBio?.raw && renderRichText(post.artist.shortBio, options)}
             </div>
-          </div>
+    </div>*/}
             <Tags tags={post.tags} />
             {(previous || next) && (
               <nav>
@@ -124,6 +125,7 @@ export const pageQuery = graphql`
         }
         title
         website
+        slug
       }
       
     }

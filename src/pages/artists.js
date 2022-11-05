@@ -14,7 +14,7 @@ class ArtistIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Seo title="Artist" />
-        <Hero title="Artist" />
+        <Hero title="Projects Overview" />
         <ArtistPreview posts={posts} />
       </Layout>
     )

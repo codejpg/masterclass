@@ -19,6 +19,8 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+      <Hero 
+      image={author.heroImage.gatsbyImage}/>
         <Iteration id="1" 
         name="Iteration 1" 
         subtitle="Working with Waste Research Group: Workshop" 
@@ -35,10 +37,9 @@ class RootIndex extends React.Component {
         subtitle="Working With Waste: Exhibition and programme (2023)"/>
         <Iteration id="3" 
         name="Iteration 3" 
+        subtitle="Working with Waste: Virtual Roundtable (2022-23)" 
         link1="/artists" 
-        link1name="Working with Waste: Virtual Roundtable (2022-23)" 
-        link2="/artists" 
-        link2name="Download pdf" />
+        link1name="Download pdf" />
         <Iteration id="4" 
         name="Iteration 4" 
         subtitle="Working With Waste: Publication (2023)" />

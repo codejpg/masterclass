@@ -10,7 +10,7 @@ const Navigation = () => (
       <span className={styles.navigationItem}>Working with Waste</span>
     </Link>
     <ul className={styles.navigation}>
-      <li className={styles.navigationItem}>
+   {/*   <li className={styles.navigationItem}>
         <Link to="/" activeClassName="active">
         Projects
         </Link>
@@ -19,15 +19,10 @@ const Navigation = () => (
         <Link to="/artists/" activeClassName="active">
         Workshop
         </Link>
-      </li>
+</li>*/}
       <li className={styles.navigationItem}>
         <Link to="/about/" activeClassName="active">
           Info
-        </Link>
-      </li>
-      <li className={styles.navigationItem}>
-        <Link to="/upcoming/" activeClassName="active">
-          Upcoming
         </Link>
       </li>
     </ul>

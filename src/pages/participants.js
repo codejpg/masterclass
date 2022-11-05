@@ -54,6 +54,20 @@ export const pageQuery = graphql`
         website
         contentful_id
         slug
+        portfolio_post {
+          title
+          heroImage {
+              gatsbyImage
+          }
+          slug
+        }
+        project {
+          heroImage {
+              gatsbyImage
+         }
+          title
+          slug
+        }
       }
     }
   }

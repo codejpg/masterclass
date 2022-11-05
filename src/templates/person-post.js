@@ -16,7 +16,7 @@ import * as styles from './portfolio-post.module.css'
 class PersonPostTemplate extends React.Component {
   render() {
     const person = get(this.props, 'data.contentfulPerson')
-    //const post = get(this.props, 'data.contentfulPerson.projects')
+    const post = get(this, 'props.data.contentfulPerson.portfolio_post')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
 
@@ -59,9 +59,12 @@ class PersonPostTemplate extends React.Component {
          
  
               </span>
-              Projects
-            <Link to={`/artists/${person.projects?.slug}`}>
-                {person.projects?.slug} test
+              Research Project
+            <Link to={`/artists/${person.project?.slug}`}>
+                <p>{person.project?.title} </p>
+                <GatsbyImage
+                image={person.heroImage}
+             />
             </Link>
           </div>
          
@@ -71,14 +74,14 @@ class PersonPostTemplate extends React.Component {
                 <ul className={styles.articleNavigation}>
                   {previous && (
                     <li>
-                      <Link to={`/artists/${previous.slug}`} rel="prev">
+                      <Link to={`/participants/${previous.slug}`} rel="prev">
                         ← {previous.name}
                       </Link>
                     </li>
                   )}
                   {next && (
                     <li>
-                      <Link to={`/artists/${next.slug}`} rel="next">
+                      <Link to={`/participants/${next.slug}`} rel="next">
                         {next.name} →
                       </Link>
                     </li>
@@ -110,7 +113,7 @@ query PersonBySlug(
         title
         website
         slug
-          
+        
         portfolio_post {
             title
             heroImage {
@@ -118,7 +121,7 @@ query PersonBySlug(
             }
             slug
         }
-        projects {
+        project {
             heroImage {
                 gatsbyImage
             }
