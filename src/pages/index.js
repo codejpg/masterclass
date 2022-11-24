@@ -7,7 +7,7 @@ import Iteration from '../components/iteration-preview'
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 import ArtistPreview from '../components/artist-preview'
-
+import IndexLayout from '../components/index-layout'
 
 
 class RootIndex extends React.Component {
@@ -19,10 +19,10 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-      <Hero 
-      image={author.heroImage.gatsbyImage}/>
+      <IndexLayout 
+      image={author.heroImage.gatsbyImage} />
         <Iteration id="1" 
-        name="Iteration 1" 
+        name="Iteration 1 (2022)" 
         subtitle="Working with Waste Research Group: Workshop" 
         link1="/artists" 
         link1name="Overview" 
@@ -33,18 +33,17 @@ class RootIndex extends React.Component {
         link4="/artists" 
         link4name="Shared Resource"/>
         <Iteration id="2" 
-        name="Iteration 2" 
-        subtitle="Working With Waste: Exhibition and programme (2023)"/>
+        name="Iteration 2 (2022-23)" 
+        subtitle="Working With Waste: Exhibition and programme"/>
         <Iteration id="3" 
-        name="Iteration 3" 
-        subtitle="Working with Waste: Virtual Roundtable (2022-23)" 
+        name="Iteration 3 (2023)" 
+        subtitle="Working with Waste: Virtual Roundtable" 
         link1="/artists" 
         link1name="Download pdf" />
         <Iteration id="4" 
-        name="Iteration 4" 
-        subtitle="Working With Waste: Publication (2023)" />
+        name="Iteration 4 2023" 
+        subtitle="Working With Waste: Publication" />
        
-    
        {/* <ArtistPreview  posts={posts} />*/}
 
       </Layout>
@@ -66,8 +65,7 @@ export const pageQuery = graphql`
           gatsbyImage(
             layout: FULL_WIDTH
             placeholder: BLURRED
-            width: 424
-            height: 212
+            width: 1200
           )
         }
         description {
@@ -106,7 +104,7 @@ export const pageQuery = graphql`
             gatsbyImage(
               layout: CONSTRAINED
               placeholder: BLURRED
-              width: 1180
+              width: 2880
             )
           }
         }

@@ -90,6 +90,7 @@ div:hover > #hov{
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    padding-top: calc(var(--space-xl)*3);
 }
   .site-content {
     flex: 1;

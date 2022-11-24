@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import * as styles from './navigation.module.css'
 
 const Navigation = () => (
+  <div className={styles.wrapper}>
   <nav role="navigation" className={styles.container} aria-label="Main">
     <Link to="/" className={styles.logoLink}>
       {/*<span className={styles.logo} />*/}
@@ -27,6 +28,7 @@ const Navigation = () => (
       </li>
     </ul>
   </nav>
+  </div>
 )
 
 export default Navigation

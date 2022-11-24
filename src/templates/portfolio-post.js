@@ -38,6 +38,7 @@ class PortfolioPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+        <h1 className="pageTitle">Research Projects</h1>
         <Seo
           title={post.title}
           image={`http:${post.heroImage.resize.src}`}

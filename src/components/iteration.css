@@ -2,14 +2,15 @@
     display: flex;
     justify-content: wrap;
     align-items: center;
-    margin:var(--size-gutter);
+    margin: 0 var(--size-gutter);
+    color: var(--light-grey);
   }
   
   .list {
     display: flex;
     list-style: none;
     margin: var(--space-xl);
-    gap: var(--space-xl);
+    gap: var(--space-xs);
   }
   
   .listItem{
@@ -18,17 +19,17 @@
     flex-direction: row;
     font-size:  var(--text-3xl);
     font-family: var(--font-sans);
+    
   }
-  .listItem:hover{
-    font-family: var(--font-irregular);
-    cursor: pointer;
-  }
+
   .menu span{
+
     padding-left:var(--size-gutter);
     
   }
 
   .subtitle span{
+
     font-size: var(--text-xl);
     margin-bottom: var(--space-xl);
   }
@@ -55,4 +56,8 @@
     border-bottom-color: var(--primary);
     color: var(--primary);
   }
-  
+  @media (max-width: 488px) {
+    .listItem{
+      font-size: var(--text-2xl);
+    }
+  }

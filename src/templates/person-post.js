@@ -17,6 +17,7 @@ class PersonPostTemplate extends React.Component {
   render() {
     const person = get(this.props, 'data.contentfulPerson')
     const post = get(this, 'props.data.contentfulPerson.portfolio_post')
+    const portfolio = get(this, 'props.data.contentfulPortfolioPost')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
 
@@ -66,7 +67,8 @@ class PersonPostTemplate extends React.Component {
              />
             </Link>
           </div>
-         
+
+
        
             {(previous || next) && (
               <nav>
@@ -120,6 +122,7 @@ query PersonBySlug(
             title
             slug
             }
+         
          
         
       }

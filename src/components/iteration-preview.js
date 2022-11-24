@@ -26,7 +26,7 @@ render(){
 
   <div role="navigation" className="nav-box" aria-label="Main">
     <ul className={styles.list}>
-      <div className="listItem" onClick={this.toggleVisible} >
+      <div className="listItem" onMouseOver={this.toggleVisible} >
         {this.props.name} 
       </div>
       {this.props.subtitle ? <Subtitle className="subtitle" active={this.state.isVisible}>
