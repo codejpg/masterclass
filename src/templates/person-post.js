@@ -22,54 +22,64 @@ class PersonPostTemplate extends React.Component {
     const next = get(this.props, 'data.next')
 
     const options = {
-        renderNode: {
-          [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: (node) => {
           const { gatsbyImage, description } = node.data.target
           return (
-             <GatsbyImage
-                image={getImage(gatsbyImage)}
-                alt={description}
-             />
-           )
-          },
-          
+            <GatsbyImage
+              image={getImage(gatsbyImage)}
+              alt={description}
+            />
+          )
         },
-      };
+
+      },
+    };
 
     return (
       <Layout location={this.props.location}>
+
         <Seo
-          title={person.name}
-       
+          title={portfolio.title}
+          image={`http:${portfolio.heroImage.resize.src}`}
         />
         <Hero
-          title={person.name}
-          subtitle={person.title}
+          image={portfolio.heroImage?.gatsbyImage}
+          title={portfolio.title}
+          //subtitle={post.artist?.name}
+          link={portfolio.artist?.slug}
         />
         <div className={styles.container}>
           <div className={styles.article}>
-           
-            <div className={styles.artistBox}>
-              <span className={styles.meta}>
-              <a href={person.website} target="_blank">
-              {person.website}</a>
-              <div className={styles.body}>
-              { renderRichText(person.shortBio)}
+            <div className={styles.body}>
+              {portfolio.body?.raw && renderRichText(portfolio.body, options)}
             </div>
-         
- 
-              </span>
-              {person.project?.slug && <h3>Research Project</h3>}
-            <Link to={`/artists/${person.project?.slug}`}>
-                <p>{person.project?.title} </p>
-                <GatsbyImage
-                image={person.heroImage}
-             />
-            </Link>
           </div>
 
+          <div className={styles.artistBox}>
+            <span className={styles.meta}>
+              <Link to={`/participants/${post.artist?.slug}`} ><h1>{post.artist?.name}</h1> </Link>
+              {post.artist?.title} &middot;{' '}
+              <a href={post.artist?.website} target="_blank">
+                {post.artist?.website}</a>
+            </span>
 
-       
+            <div className={styles.bio}>
+              {post.artist.shortBio?.raw && renderRichText(post.artist.shortBio, options)}
+            </div>
+
+
+            {person.project?.slug && <h3>Research Project</h3>}
+            <Link to={`/artists/${person.project?.slug}`}>
+              <p>{person.project?.title} </p>
+              <GatsbyImage
+                image={person.heroImage}
+              />
+            </Link>
+
+
+
+
             {(previous || next) && (
               <nav>
                 <ul className={styles.articleNavigation}>
@@ -91,7 +101,7 @@ class PersonPostTemplate extends React.Component {
               </nav>
             )}
           </div>
-          
+
         </div>
       </Layout>
     )

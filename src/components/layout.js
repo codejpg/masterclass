@@ -36,7 +36,7 @@ class Template extends React.Component {
         {/*
           <Cursor></Cursor>
         <div id="cursor"></div> */}
-        <Footer />
+     
         </div>
       </>
     )

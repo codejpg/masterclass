@@ -22,26 +22,27 @@ class RootIndex extends React.Component {
       <IndexLayout 
       image={author.heroImage.gatsbyImage} />
         <Iteration id="1" 
-        name="Iteration 1 (2022)" 
+        name="Research Group (2022)" 
         subtitle="Working with Waste Research Group: Workshop" 
         link1="/artists" 
         link1name="Overview" 
+        link4="/participants" 
+        link4name="Participants + Projects" 
+        participants="Participants + Projects"
         link2="/participants" 
-        link2name="Participants + Projects" 
-        link3="/participants" 
-        link3name="Forum" 
-        link4="/artists" 
-        link4name="Shared Resource"/>
+        link2name="Forum" 
+        link3="/artists" 
+        link3name="Shared Resource"/>
         <Iteration id="2" 
-        name="Iteration 2 (2022-23)" 
+        name=" Exhibition and programme(2023)" 
         subtitle="Working With Waste: Exhibition and programme"/>
         <Iteration id="3" 
-        name="Iteration 3 (2023)" 
+        name="Virtual Roundtable (2023)" 
         subtitle="Working with Waste: Virtual Roundtable" 
         link1="/artists" 
         link1name="Download pdf" />
         <Iteration id="4" 
-        name="Iteration 4 2023" 
+        name="Publication (2023)" 
         subtitle="Working With Waste: Publication" />
        
        {/* <ArtistPreview  posts={posts} />*/}
@@ -104,7 +105,7 @@ export const pageQuery = graphql`
             gatsbyImage(
               layout: CONSTRAINED
               placeholder: BLURRED
-              width: 2880
+              width: 3880
             )
           }
         }

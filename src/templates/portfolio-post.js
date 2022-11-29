@@ -38,7 +38,7 @@ class PortfolioPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <h1 className="pageTitle">Research Projects</h1>
+   
         <Seo
           title={post.title}
           image={`http:${post.heroImage.resize.src}`}
@@ -46,7 +46,7 @@ class PortfolioPostTemplate extends React.Component {
         <Hero
           image={post.heroImage?.gatsbyImage}
           title={post.title}
-          subtitleLink={post.artist?.name}
+          //subtitle={post.artist?.name}
           link={post.artist?.slug}
         />
         <div className={styles.container}>
@@ -54,7 +54,7 @@ class PortfolioPostTemplate extends React.Component {
             <div className={styles.body}>
               {post.body?.raw && renderRichText(post.body, options)}
             </div>
-            {/*<div className={styles.artistBox}>
+            <div className={styles.artistBox}>
               <span className={styles.meta}>
               <Link to={`/participants/${post.artist?.slug}`} ><h1>{post.artist?.name}</h1> </Link>
               {post.artist?.title} &middot;{' '}
@@ -65,7 +65,7 @@ class PortfolioPostTemplate extends React.Component {
             <div className={styles.bio}>
               {post.artist.shortBio?.raw && renderRichText(post.artist.shortBio, options)}
             </div>
-    </div>*/}
+    </div>
             <Tags tags={post.tags} />
             {(previous || next) && (
               <nav>

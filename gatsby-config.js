@@ -23,6 +23,19 @@ module.exports = {
         host: process.env.CONTENTFUL_HOST
       },
     },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: process.env.GATSBY_ADOBE_FONT_PROJECT_ID,
+          families: ['Minion']
+        },
+        google: {
+          families: ['Droid Sans', 'Droid Serif', 'Minion']
+        }
+      
+      },
+    },
   ],
   
 };

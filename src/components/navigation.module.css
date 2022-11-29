@@ -1,6 +1,5 @@
 .wrapper{
-  position: fixed;
-  background-color: var(--light-grey);
+  position: relative;
   width: 100vw;
   z-index: 2;
 }

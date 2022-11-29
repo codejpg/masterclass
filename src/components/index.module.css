@@ -6,7 +6,9 @@
 .image {
     position:fixed;
     width: 100vw;
-    height: calc(100vh - var(--space-xl)*3)
+    height: 120vh;
+    top: -70px;
+
 }
   
   
