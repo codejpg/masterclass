@@ -16,7 +16,7 @@ import * as styles from './portfolio-post.module.css'
 class PersonPostTemplate extends React.Component {
   render() {
     const person = get(this.props, 'data.contentfulPerson')
-    const post = get(this, 'props.data.contentfulPerson.portfolio_post')
+    const post = get(this, 'props.data.contentfulPerson.project')
     const portfolio = get(this, 'props.data.contentfulPortfolioPost')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
@@ -44,31 +44,31 @@ class PersonPostTemplate extends React.Component {
           image={`http:${portfolio.heroImage.resize.src}`}
         />
         <Hero
-          image={portfolio.heroImage?.gatsbyImage}
-          title={portfolio.title}
+          image={post.heroImage?.gatsbyImage}
+          title={post.title}
           //subtitle={post.artist?.name}
           link={portfolio.artist?.slug}
         />
         <div className={styles.container}>
           <div className={styles.article}>
             <div className={styles.body}>
-              {portfolio.body?.raw && renderRichText(portfolio.body, options)}
+              {post.body?.raw && renderRichText(post.body, options)}
             </div>
-          </div>
+      
 
           <div className={styles.artistBox}>
             <span className={styles.meta}>
-              <Link to={`/participants/${post.artist?.slug}`} ><h1>{post.artist?.name}</h1> </Link>
-              {post.artist?.title} &middot;{' '}
-              <a href={post.artist?.website} target="_blank">
-                {post.artist?.website}</a>
+              <Link to={`/participants/${person?.slug}`} ><h1>{person?.name}</h1> </Link>
+              {person?.title} &middot;{' '}
+              <a href={person?.website} target="_blank">
+                {person?.website}</a>
             </span>
 
             <div className={styles.bio}>
-              {post.artist.shortBio?.raw && renderRichText(post.artist.shortBio, options)}
+              {person.shortBio?.raw && renderRichText(person.shortBio, options)}
             </div>
 
-
+{/*
             {person.project?.slug && <h3>Research Project</h3>}
             <Link to={`/artists/${person.project?.slug}`}>
               <p>{person.project?.title} </p>
@@ -76,9 +76,10 @@ class PersonPostTemplate extends React.Component {
                 image={person.heroImage}
               />
             </Link>
+             */}
 
 
-
+</div>
 
             {(previous || next) && (
               <nav>
@@ -126,12 +127,16 @@ query PersonBySlug(
         slug
         
         project {
+          body {
+            raw
+          }
             heroImage {
                 gatsbyImage(width: 100)
             }
             title
             slug
             }
+            
          
          
         
@@ -151,6 +156,9 @@ query PersonBySlug(
         title
         artist {
           name
+        }
+        body {
+          raw
         }
         heroImage {
           gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)

@@ -8,6 +8,7 @@ import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 import ArtistPreview from '../components/artist-preview'
 import IndexLayout from '../components/index-layout'
+import ParticipantsPreview from '../components/participants-preview2';
 
 
 class RootIndex extends React.Component {
@@ -15,6 +16,7 @@ class RootIndex extends React.Component {
   render() {
     //const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
     const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
+    const person = get(this, 'props.data.allContentfulPerson.nodes')
     const [author] = get(this, 'props.data.allContentfulIntroduction.nodes')
 
     return (
@@ -26,13 +28,14 @@ class RootIndex extends React.Component {
         subtitle="Working with Waste Research Group: Workshop" 
         link1="/artists" 
         link1name="Overview" 
-        link4="/participants" 
-        link4name="Participants + Projects" 
-        participants="Participants + Projects"
-        link2="/participants" 
+        link2="/forum" 
         link2name="Forum" 
         link3="/artists" 
-        link3name="Shared Resource"/>
+        link3name="Shared Resource"
+        link4="/participants" 
+        link4name="Participants + Projects" 
+        participants={person}
+        />
         <Iteration id="2" 
         name=" Exhibition and programme(2023)" 
         subtitle="Working With Waste: Exhibition and programme"/>
@@ -91,7 +94,25 @@ export const pageQuery = graphql`
         title
       }
     }
- 
+    allContentfulPerson {
+      nodes {
+        name
+        shortBio {
+          raw
+        }
+        title
+        website
+        contentful_id
+        slug
+        project {
+          heroImage {
+            gatsbyImage(width: 100)
+         }
+          title
+          slug
+        }
+      }
+    }
 
       allContentfulIntroduction (
         filter: { contentful_id: { eq: "4HNowKy0j4VYNuQ6MLUk7G" } }
