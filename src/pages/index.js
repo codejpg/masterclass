@@ -25,35 +25,31 @@ class RootIndex extends React.Component {
       <IndexLayout 
       image={author.heroImage.gatsbyImage} />
         <Iteration id="1" 
-        name="Research Group (2022)" 
-        subtitle="Working with Waste Research Group: Workshop" 
+        name="Working With Waste: Research Group" 
+
         link1="/overview" 
-        link1name="Overview" 
+        link1name="Workshop Overview" 
         link2="/forum" 
         link2name="Forum" 
         link3="/shared-resource" 
         link3name="Shared Resource"
         link4="/participants" 
-        link4name="Participants + Projects" 
+        link4name="Participants + Projects"   
         mentors={mentor}
         participants={person}
         />
         <Iteration id="2" 
-        name=" Exhibition and programme(2023)" 
-        subtitle="Working With Waste: Exhibition and programme"/>
+        name=" Working With Waste: Exhibition and programme" />
+           
+
         <Iteration id="3" 
-        name="Virtual Roundtable (2023)" 
-        subtitle="Working with Waste: Virtual Roundtable" 
-        link1="/artists" 
-        link1name="Download pdf" />
-        <Iteration id="4" 
-        name="Publication (2023)" 
-        subtitle="Working With Waste: Publication" />
+        name="2023" />                  
+ 
        
        {/* <ArtistPreview  posts={posts} />*/}
 
       </Layout>
-    )
+    )       
   }
 }
 

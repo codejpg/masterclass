@@ -5,7 +5,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import Container from './container'
 import Tags from './tags'
-import * as styles from './participant-preview.module.css'
+import * as styles from './participant-preview.css'
 
 const ParticipantsPreview = ({ posts }) => {
   if (!posts) return null

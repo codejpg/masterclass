@@ -68,7 +68,7 @@ render(){
 
       {this.props.mentors ? <ParticipantList className="menu" active={this.state.isVisible2} >
       <ParticipantsPreview className="menu"  posts={this.props.mentors} /> 
-      </ParticipantList>: null}
+  </ParticipantList>: null}
 
       {this.props.participants ? <ParticipantList className="menu" active={this.state.isVisible2} >
         <ParticipantsPreview className="menu"  posts={this.props.participants} /> 

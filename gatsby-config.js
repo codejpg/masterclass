@@ -31,7 +31,7 @@ module.exports = {
           families: ['Minion']
         },
         google: {
-          families: ['Droid Sans', 'Droid Serif', 'Minion']
+          families: ['Minion']
         }
       
       },

@@ -2,12 +2,13 @@
     position: absolute;
     z-index: -1;
     color: white;
+
 }
 .image {
     position:absolute;
     width: 100vw;
     height: 120vh;
-    top: 0px;
+    top: calc(-1*(var(--size-gutter)));
 
 }
   
@@ -36,7 +37,7 @@
   
     .details {
       left: var(--size-gutter);
-      padding: var(--space-2xl) 0 0 var(--size-gutter)  ;
+      padding: var(--space-4xl) var(--space-2xl) 0 var(--size-gutter)  ;
     }
   }
   
