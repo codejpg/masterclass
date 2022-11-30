@@ -14,8 +14,9 @@ import ParticipantsPreview from '../components/participants-preview2';
 class RootIndex extends React.Component {
  
   render() {
-    //const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
+
     const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
+    const mentor = get(this, 'props.data.allContentfulMentor.nodes')
     const person = get(this, 'props.data.allContentfulPerson.nodes')
     const [author] = get(this, 'props.data.allContentfulIntroduction.nodes')
 
@@ -26,14 +27,15 @@ class RootIndex extends React.Component {
         <Iteration id="1" 
         name="Research Group (2022)" 
         subtitle="Working with Waste Research Group: Workshop" 
-        link1="/artists" 
+        link1="/overview" 
         link1name="Overview" 
         link2="/forum" 
         link2name="Forum" 
-        link3="/artists" 
+        link3="/shared-resource" 
         link3name="Shared Resource"
         link4="/participants" 
         link4name="Participants + Projects" 
+        mentors={mentor}
         participants={person}
         />
         <Iteration id="2" 
@@ -59,25 +61,6 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      nodes {
-        title
-        slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImage(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            width: 1200
-          )
-        }
-        description {
-          raw
-        }
-      }
-      
-    }
     allContentfulPortfolioPost {
       nodes {
         
@@ -91,6 +74,15 @@ export const pageQuery = graphql`
           )
         }
         slug
+        title
+      }
+    }
+    allContentfulMentor {
+      nodes {
+      
+        shortBio {
+          raw
+        }
         title
       }
     }

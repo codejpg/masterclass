@@ -4,10 +4,10 @@
     color: white;
 }
 .image {
-    position:fixed;
+    position:absolute;
     width: 100vw;
     height: 120vh;
-    top: -70px;
+    top: 0px;
 
 }
   

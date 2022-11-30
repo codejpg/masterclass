@@ -16,8 +16,8 @@ class ParticipantIndex extends React.Component {
       <Layout location={this.props.location}>
         <Seo title="Participants" />
         <Hero title="Participants" />
-        {/*<ArtistPreview posts={posts} />*/}
-        <ParticipantPreview  posts={person} />
+        {/*<ArtistPreview posts={posts} />
+        <ParticipantPreview  posts={person} />*/}
       </Layout>
     )
   }

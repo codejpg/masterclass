@@ -10,14 +10,16 @@ import About from '../components/about'
 
 import Container from '../components/container'
 
-class ForumPage extends React.Component {
+class OverviewPage extends React.Component {
     render() {
-      const [forum]  = get(this, 'props.data.allContentfulForum.nodes')
+      const [about]  = get(this, 'props.data.allContentfulOverview.nodes')
       return (
             <Layout location={this.props.location}>
-              <Seo title={forum.title} />
-              <About title={forum.title}
-              content={forum.body}  
+              <Seo title={about.title} />
+              <About title={about.title}
+              image={about.image.gatsbyImage}
+              subtitle={about.subtitle}  
+              content={about.body}  
               />
          
             </Layout>
@@ -26,20 +28,24 @@ class ForumPage extends React.Component {
     }
   }
 
-export default ForumPage
+export default OverviewPage
     
 export const pageQuery = graphql`
-query ForumQuery {
-  allContentfulForum {
+query SharedResourceQuery {
+  allContentfulOverview {
     nodes {
       title
+      subtitle
       body {
         raw
       }
-    
+      image{
+        gatsbyImage(width: 3000)
+
+      }
      
     }
   }
 
-}
+  }
 `

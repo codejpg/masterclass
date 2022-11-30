@@ -10,16 +10,16 @@ import About from '../components/about'
 
 import Container from '../components/container'
 
-class AboutPage extends React.Component {
+class SharedResourcePage extends React.Component {
     render() {
-      const [about]  = get(this, 'props.data.allContentfulAbout.nodes')
+      const [about]  = get(this, 'props.data.allContentfulSharedResource.nodes')
       return (
             <Layout location={this.props.location}>
               <Seo title={about.title} />
               <About title={about.title}
-              subtitle={about.subtitle}
-              content={about.description}  
-              image={about.heroImage.gatsbyImage}
+              image={about.image.gatsbyImage}
+              subtitle={about.subtitle}  
+              content={about.body}  
               />
          
             </Layout>
@@ -28,24 +28,20 @@ class AboutPage extends React.Component {
     }
   }
 
-export default AboutPage
+export default SharedResourcePage
     
 export const pageQuery = graphql`
-query AboutQuery {
-  allContentfulAbout {
+query SharedResourceQuery {
+  allContentfulSharedResource {
     nodes {
       title
       subtitle
-      description {
+      body {
         raw
       }
-      heroImage {
-        gatsbyImage(
-          layout: FULL_WIDTH
-          placeholder: BLURRED
-          width: 424
-          height: 212
-        )
+      image{
+        gatsbyImage(width: 3000)
+
       }
      
     }

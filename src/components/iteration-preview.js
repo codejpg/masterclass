@@ -17,7 +17,7 @@ const Subtitle = styled.span`
     display: ${props => (props.active ? 'block' : 'none')};
   }
 `;
-const List = styled.span`
+const ParticipantList = styled.span`
   span {
     display: ${props => (props.active ? 'block' : 'none')};
   }
@@ -29,14 +29,17 @@ class Iterations extends Component  {
     isVisible2: false
   };
   toggleVisible = () => {
-    this.setState(state => ({ isVisible: !state.isVisible }));
+    this.setState(state => ({ 
+      isVisible: !state.isVisible,
+      isVisible2: false
+    
+    }));
   };
   toggleVisible2 = () => {
     this.setState(state => ({ isVisible2: !state.isVisible2 }));
   };
   
 render(){
-  const person = get(this, 'props.data.allContentfulPerson.nodes')
   return (
 
   <div role="navigation" className="nav-box" aria-label="Main">
@@ -63,9 +66,14 @@ render(){
         <span>{this.props.link4name}</span>
       </Menu>: null}
 
-      {this.props.participants ? <List className="menu" active={this.state.isVisible2} >
+      {this.props.mentors ? <ParticipantList className="menu" active={this.state.isVisible2} >
+      <ParticipantsPreview className="menu"  posts={this.props.mentors} /> 
+      </ParticipantList>: null}
+
+      {this.props.participants ? <ParticipantList className="menu" active={this.state.isVisible2} >
         <ParticipantsPreview className="menu"  posts={this.props.participants} /> 
-      </List>: null}
+      </ParticipantList>: null}
+     
      
    
       
@@ -83,27 +91,3 @@ render(){
 
 export default Iterations
 
-export const pageQuery = graphql`
-query ArtistIndexQuery {
-  allContentfulPerson {
-    nodes {
-      name
-      shortBio {
-        raw
-      }
-      title
-      website
-      contentful_id
-      slug
-      project {
-        heroImage {
-          gatsbyImage(width: 100)
-       }
-        title
-        slug
-      }
-    }
-  
-  }
-}
-`
