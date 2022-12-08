@@ -8,21 +8,26 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import About from '../components/about'
 
+
 import Container from '../components/container'
+import Footer from '../components/footer'
 
 class AboutPage extends React.Component {
     render() {
       const [about]  = get(this, 'props.data.allContentfulAbout.nodes')
       return (
+        <>
             <Layout location={this.props.location}>
               <Seo title={about.title} />
               <About title={about.title}
               subtitle={about.subtitle}
               content={about.description}  
-              image={about.heroImage.gatsbyImage}
+              /*image={about.heroImage.gatsbyImage}*/
               />
-         
+              
             </Layout>
+            <Footer></Footer>
+            </>
             )
         
     }
@@ -39,14 +44,7 @@ query AboutQuery {
       description {
         raw
       }
-      heroImage {
-        gatsbyImage(
-          layout: FULL_WIDTH
-          placeholder: BLURRED
-          width: 424
-          height: 212
-        )
-      }
+    
      
     }
   }

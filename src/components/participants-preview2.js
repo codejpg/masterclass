@@ -15,11 +15,17 @@ const ParticipantsPreview = ({ posts }) => {
   return (
     
     <>
+
+
       <ul className={styles.nameList}>
+   
+        
         {posts.map((post) => {
           return (
-
+         <>
+ 
             <li key={post.slug}>
+             
               <div className={styles.container}>
               <Link to={`/participants/${post.slug}`} className={styles.link} >
               <span className={styles.content}>{post.name}</span>
@@ -38,6 +44,7 @@ const ParticipantsPreview = ({ posts }) => {
               </div>
               </div>
             </li>
+            </>
           )
         })}
       </ul>

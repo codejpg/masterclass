@@ -66,9 +66,16 @@ render(){
         <span>{this.props.link4name}</span>
       </Menu>: null}
 
+      {this.props.mentors ? <ParticipantList className="menu" active={this.state.isVisible2} > 
+      <span active={this.state.isVisible2}> Mentors</span>
+      </ParticipantList>: null}
       {this.props.mentors ? <ParticipantList className="menu" active={this.state.isVisible2} >
       <ParticipantsPreview className="menu"  posts={this.props.mentors} /> 
   </ParticipantList>: null}
+
+      {this.props.participants ? <ParticipantList className="menu" active={this.state.isVisible2} > 
+      <span active={this.state.isVisible2}> Participants</span>
+      </ParticipantList>: null}
 
       {this.props.participants ? <ParticipantList className="menu" active={this.state.isVisible2} >
         <ParticipantsPreview className="menu"  posts={this.props.participants} /> 
