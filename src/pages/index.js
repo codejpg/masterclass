@@ -8,6 +8,7 @@ import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 import ArtistPreview from '../components/artist-preview'
 import IndexLayout from '../components/index-layout'
+import IndexContent from '../components/index-content'
 import ParticipantsPreview from '../components/participants-preview2';
 
 
@@ -21,11 +22,11 @@ class RootIndex extends React.Component {
     const [author] = get(this, 'props.data.allContentfulIntroduction.nodes')
 
     return (
-      <Layout location={this.props.location}>
-      <IndexLayout 
+      <IndexLayout location={this.props.location}>
+      <IndexContent 
       image={author.heroImage.gatsbyImage} />
         <Iteration id="1" 
-        name="Working With Waste: Research Group" 
+        name=" Research Group" 
 
         link1="/overview" 
         link1name="Workshop Overview" 
@@ -39,16 +40,17 @@ class RootIndex extends React.Component {
         participants={person}
         />
         <Iteration id="2" 
-        name=" Working With Waste: Exhibition and programme" />
+        name=" Exhibition and programme" />
            
 
         <Iteration id="3" 
-        name="2023" />                  
+        name="Virtual Roundtable" />             
+
  
        
        {/* <ArtistPreview  posts={posts} />*/}
 
-      </Layout>
+      </IndexLayout>
     )       
   }
 }

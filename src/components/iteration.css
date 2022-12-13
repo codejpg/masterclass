@@ -17,7 +17,7 @@
     display: inline-flex;
     align-items: center;
     flex-direction: row;
-    font-size:  var(--text-3xl);
+    font-size:  var(--text-4xl);
     font-family: var(--font-sans);
     
   }
@@ -25,7 +25,7 @@
   .menu span{
 
     padding-left:var(--size-gutter);
-    
+    font-size:  var(--text-4xl);
   }
 
   .subtitle span{

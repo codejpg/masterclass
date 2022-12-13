@@ -19,7 +19,7 @@
   gap: var(--space-xl);
 }
 
-.navigationItem {
+.navigationItem, .navigationItemLight {
   display: inline-flex;
   align-items: center;
   flex-direction: row;
@@ -27,11 +27,17 @@
 
 .navigationItem a {
   border-bottom: 1.5px solid transparent;
-  color: currentColor;
+  color: black;
+  text-decoration: none;
+}
+.navigationItemLight a {
+  border-bottom: 1.5px solid transparent;
+  color: var(--background);
   text-decoration: none;
 }
 
-.navigationItem a:hover {
+
+.navigationItem a:hover, .navigationItemLight a:hover{
   border-bottom-color: var(--primary);
   color: var(--primary);
 }

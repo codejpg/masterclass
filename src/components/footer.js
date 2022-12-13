@@ -12,6 +12,7 @@ const Footer = () => (
       <div class="rightss">Imprint</div>
     </div>
   </Container>
+  
 )
 
 export default Footer

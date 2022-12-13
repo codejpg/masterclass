@@ -28,7 +28,7 @@
     font-size: var(--text-prose);
     gap: var(--space-xl);
     letter-spacing: var(--text-prose-tracking);
-    line-height: var(--loose);
+    /*line-height: var(--);*/
     padding: var(--size-gutter) var(--size-gutter) calc(var(--size-gutter) * 2);
   }
   

@@ -3,12 +3,12 @@ import { Link } from 'gatsby'
 
 import * as styles from './navigation.module.css'
 
-const Navigation = () => (
+const Navigation = (textColor) => (
   <div className={styles.wrapper}>
   <nav role="navigation" className={styles.container} aria-label="Main">
     <Link to="/" className={styles.logoLink}>
       {/*<span className={styles.logo} />*/}
-      <span className={styles.navigationItem}>WWW</span>
+      <span className={textColor ? styles.navigationItemLight : styles.navigationItem}>WWW</span>
     </Link>
     <ul className={styles.navigation}>
    {/*   <li className={styles.navigationItem}>
@@ -21,7 +21,7 @@ const Navigation = () => (
         Workshop
         </Link>
 </li>*/}
-      <li className={styles.navigationItem}>
+      <li className={textColor? styles.navigationItemLight : styles.navigationItem}>
         <Link to="/about/" activeClassName="active">
           Info
         </Link>

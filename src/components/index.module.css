@@ -2,14 +2,27 @@
     position: absolute;
     z-index: -1;
     color: white;
-
+  top:0;
 }
 .image {
     position:absolute;
     width: 100vw;
     height: 120vh;
-    top: calc(-1*(var(--size-gutter)));
+    /*top: calc(-1*(var(--size-gutter)));*/
+    top: 0;
 
+}
+
+.indexsite{
+  
+
+  min-height: 100vh;
+
+
+}
+.indexsitecontent {
+
+  padding-top:0;
 }
   
   

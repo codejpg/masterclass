@@ -30,9 +30,6 @@ module.exports = {
           id: process.env.GATSBY_ADOBE_FONT_PROJECT_ID,
           families: ['Minion']
         },
-        google: {
-          families: ['Minion']
-        }
       
       },
     },

@@ -30,7 +30,7 @@ class Template extends React.Component {
       <>
      
         <Seo />
-        <Navigation />
+        <Navigation textColor={false} />
         <div className="site">
         <main className="site-content">{children}</main>
         {/*
