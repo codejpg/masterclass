@@ -35,7 +35,9 @@ class RootIndex extends React.Component {
         link3="/shared-resource" 
         link3name="Shared Resource"
         link4="/participants" 
-        link4name="Participants + Projects"   
+        link4name="Mentors + Speakers" 
+        link5="/participants" 
+        link5name="Participants Projects"  
         mentors={mentor}
         participants={person}
         />

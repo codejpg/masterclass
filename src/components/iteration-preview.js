@@ -26,12 +26,14 @@ const ParticipantList = styled.span`
 class Iterations extends Component  {
   state = {
     isVisible: false,
-    isVisible2: false
+    isVisible2: false,
+    isVisible3: false
   };
   toggleVisible = () => {
     this.setState(state => ({ 
       isVisible: !state.isVisible,
-      isVisible2: false
+      isVisible2: !state.isVisible2,
+      isVisible2: !state.isVisible3,
     
     }));
   };
@@ -66,16 +68,22 @@ render(){
         <span>{this.props.link4name}</span>
       </Menu>: null}
 
-      {this.props.mentors ? <ParticipantList className="menu" active={this.state.isVisible2} > 
-      <span active={this.state.isVisible2}> Mentors</span>
-      </ParticipantList>: null}
       {this.props.mentors ? <ParticipantList className="menu" active={this.state.isVisible2} >
       <ParticipantsPreview className="menu"  posts={this.props.mentors} /> 
   </ParticipantList>: null}
 
+      {this.props.link5 ? <Menu className="menu" active={this.state.isVisible} onClick={this.toggleVisible2} >
+        <span>{this.props.link5name}</span>
+      </Menu>: null}
+
+      {/*{this.props.mentors ? <ParticipantList className="menu" active={this.state.isVisible2} > 
+      <span active={this.state.isVisible2}> Mentors</span>
+      </ParticipantList>: null}
+
+
       {this.props.participants ? <ParticipantList className="menu" active={this.state.isVisible2} > 
       <span active={this.state.isVisible2}> Participants</span>
-      </ParticipantList>: null}
+  </ParticipantList>: null}*/}
 
       {this.props.participants ? <ParticipantList className="menu" active={this.state.isVisible2} >
         <ParticipantsPreview className="menu"  posts={this.props.participants} /> 

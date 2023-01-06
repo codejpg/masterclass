@@ -25,12 +25,12 @@
   flex-direction: row;
 }
 
-.navigationItem a {
+.navigationItem a, .navigationItem {
   border-bottom: 1.5px solid transparent;
   color: black;
   text-decoration: none;
 }
-.navigationItemLight a {
+.navigationItemLight a, .navigationItemLight {
   border-bottom: 1.5px solid transparent;
   color: var(--background);
   text-decoration: none;
