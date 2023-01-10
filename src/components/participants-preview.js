@@ -14,15 +14,21 @@ const ParticipantsPreview = ({ posts }) => {
 
   return (
     
-    <Container>
+    <>
+
+
       <ul className={styles.nameList}>
+   
+        
         {posts.map((post) => {
           return (
-
+         <>
+ 
             <li key={post.slug}>
+             
               <div className={styles.container}>
               <Link to={`/participants/${post.slug}`} className={styles.link} >
-              <h1 className={styles.content}>{post.name}</h1>
+              <span className={styles.content}>{post.name}</span>
           {/*
               <GatsbyImage onMouseOver={handleHover(1)} className={styles.image} alt="" image={post.heroImage.gatsbyImage} />
   
@@ -38,10 +44,11 @@ const ParticipantsPreview = ({ posts }) => {
               </div>
               </div>
             </li>
+            </>
           )
         })}
       </ul>
-    </Container>
+    </>
   )
 }
 

@@ -19,6 +19,10 @@
   gap: var(--space-xl);
 }
 
+.listItem{
+  line-height: var(--space-s);
+}
+
 .navigationItem, .navigationItemLight {
   display: inline-flex;
   align-items: center;

@@ -17,42 +17,56 @@ class RootIndex extends React.Component {
   render() {
 
     const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
-    const mentor = get(this, 'props.data.allContentfulMentor.nodes')
+    const mentor = get(this, 'props.data.allContentfulMentors.nodes')
     const person = get(this, 'props.data.allContentfulPerson.nodes')
     const [author] = get(this, 'props.data.allContentfulIntroduction.nodes')
 
     return (
+   
       <IndexLayout location={this.props.location}>
       <IndexContent 
       image={author.heroImage.gatsbyImage} />
         <Iteration id="1" 
-        name=" Research Group" 
+        name=" Research Group Participants" 
 
-        link1="/overview" 
-        link1name="Workshop Overview" 
-        link2="/forum" 
-        link2name="Forum" 
-        link3="/shared-resource" 
-        link3name="Shared Resource"
-        link4="/participants" 
+       
         link4name="Mentors + Speakers" 
-        link5="/participants" 
+ 
         link5name="Participants Projects"  
-        mentors={mentor}
         participants={person}
+        mentors={mentor}
+    
         />
         <Iteration id="2" 
-        name=" Exhibition and programme" />
+        name="Symposium" 
+   
+        link="/symposium" />
            
 
         <Iteration id="3" 
-        name="Virtual Roundtable" />             
+        name="Workshops" 
+        link="/shared-resource" />             
 
- 
+      <Iteration id="4" 
+        name="Virtual Roundtable" 
+        link="/virtual-roundtable" />
+
+        <Iteration id="5" 
+        name="Reading list "
+        link="/readinglist"  /> 
+
+        <Iteration id="6" 
+        name="Exhibitions" 
+        link="/exhibitions" /> 
+         
+         <Iteration id="7" 
+        name="Publications" 
+        link="/publications" />   
        
        {/* <ArtistPreview  posts={posts} />*/}
 
       </IndexLayout>
+ 
     )       
   }
 }
@@ -63,8 +77,6 @@ export const pageQuery = graphql`
   query HomeQuery {
     allContentfulPortfolioPost {
       nodes {
-        
-       
         heroImage {
           gatsbyImage(
             layout: FULL_WIDTH
@@ -74,15 +86,6 @@ export const pageQuery = graphql`
           )
         }
         slug
-        title
-      }
-    }
-    allContentfulMentor {
-      nodes {
-      
-        shortBio {
-          raw
-        }
         title
       }
     }
@@ -103,6 +106,19 @@ export const pageQuery = graphql`
           title
           slug
         }
+      }
+    }
+    allContentfulMentors{
+      nodes {
+        name
+        shortBio {
+          raw
+        }
+        title
+     
+        contentful_id
+        slug
+
       }
     }
 

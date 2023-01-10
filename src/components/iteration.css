@@ -18,14 +18,14 @@
     align-items: center;
     flex-direction: row;
     font-size:  var(--text-4xl);
-    font-family: var(--font-sans);
+    line-height:var(--text-4xl) ;
     
   }
 
   .menu span{
 
     padding-left:var(--size-gutter);
-    font-size:  var(--text-4xl);
+    font-size:  var(--text-3xl);
   }
 
   .subtitle span{
@@ -51,11 +51,7 @@
     color: currentColor;
     text-decoration: none;
   }
-  
-  .listItem a:hover {
-    border-bottom-color: var(--primary);
-    color: var(--primary);
-  }
+
   @media (max-width: 488px) {
     .listItem{
       font-size: var(--text-2xl);

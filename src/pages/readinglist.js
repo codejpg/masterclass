@@ -12,12 +12,13 @@ import Container from '../components/container'
 
 class ForumPage extends React.Component {
     render() {
-      const [forum]  = get(this, 'props.data.allContentfulForum.nodes')
+      const [reading]  = get(this, 'props.data.allContentfulReadingList.nodes')
       return (
             <Layout location={this.props.location}>
-              <Seo title={forum.title} />
-              <About title={forum.title}
-              content={forum.body}  
+              <Seo title={reading.title} />
+              <About title={reading.title}
+              content={reading.body}  
+
               />
          
             </Layout>
@@ -29,11 +30,11 @@ class ForumPage extends React.Component {
 export default ForumPage
     
 export const pageQuery = graphql`
-query ForumQuery {
-  allContentfulForum {
+query ReadingListQuery {
+  allContentfulReadingList {
     nodes {
       title
-      body {
+      body{
         raw
       }
     

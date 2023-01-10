@@ -15,20 +15,14 @@ const ParticipantsPreview = ({ posts }) => {
   return (
     
     <>
-
-
-      <ul className={styles.nameList}>
-   
-        
+      <ul className={styles.nameList}>    
         {posts.map((post) => {
           return (
          <>
- 
-            <li key={post.slug}>
-             
+            <li key={post.slug}> 
               <div className={styles.container}>
-              <Link to={`/participants/${post.slug}`} className={styles.link} >
-              <span className={styles.content}>{post.name}</span>
+                <Link to={`/mentors/${post.slug}`} className={styles.link} >
+                <span className={styles.content}>{post.name}</span>
           {/*
               <GatsbyImage onMouseOver={handleHover(1)} className={styles.image} alt="" image={post.heroImage.gatsbyImage} />
   
@@ -39,7 +33,7 @@ const ParticipantsPreview = ({ posts }) => {
                 {post.description?.raw && renderRichText(post.description)}
               </div>
           */}
-              </Link>
+                </Link>
               <div className={styles.meta}>
               </div>
               </div>

@@ -13,7 +13,7 @@ class Navigation extends React.Component {
       <nav role="navigation" className={styles.container} aria-label="Main">
         <Link to="/" className={styles.logoLink}>
           {/*<span className={styles.logo} />*/}
-          <span className={this.props.textColor ? styles.navigationItemLight : styles.navigationItem}>WWW</span>
+          <span className={this.props.textColor ? styles.navigationItemLight : styles.navigationItem}>Working With Waste</span>
         </Link>
         {console.log(this.props.textColor)}
         <ul className={styles.navigation}>

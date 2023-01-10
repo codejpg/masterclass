@@ -50,6 +50,15 @@
   font-named-instance: 'Mono';
   src: url('/fonts/ApercuMono.woff2') format("woff2");
 }
+@font-face {
+  font-family: 'Chrimson';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/fonts/CrimsonText/CrimsonText-Regular.woff2') format("woff2");
+}
+
 html {
   scroll-behavior: smooth;
 
@@ -117,7 +126,6 @@ a {
 
 a:hover {
   color: var(--primary);
-  font-family: var(--font-irregular);
   text-decoration: none;
   color: black;
 }

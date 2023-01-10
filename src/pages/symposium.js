@@ -8,20 +8,17 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import About from '../components/about'
 
-import Container from '../components/container'
-let title, image, subtitle, body;
-class SharedResourcePage extends React.Component {
+
+class SymposiumPage extends React.Component {
     render() {
-      const [about]  = get(this, 'props.data.allContentfulSharedResource.nodes')
+      const [symposium]  = get(this, 'props.data.allContentfulSymposium.nodes')
       return (
             <Layout location={this.props.location}>
-            
-            
-            
-              <About title={about.title}
-              image={about.image.gatsbyImage ? about.image.gatsbyImage : null}
-              subtitle={about.subtitle}  
-              content={about.body}  
+              <Seo title={symposium.title} />
+              <About title={symposium.title}
+              subtitle={symposium.subtitle}
+              content={symposium.body}  
+              image={symposium.image.gatsbyImage}
               />
          
             </Layout>
@@ -30,15 +27,15 @@ class SharedResourcePage extends React.Component {
     }
   }
 
-export default SharedResourcePage
+export default SymposiumPage
     
 export const pageQuery = graphql`
-query SharedResourceQuery {
-  allContentfulSharedResource {
+query SymposiumQuery {
+  allContentfulSymposium {
     nodes {
       title
       subtitle
-      body {
+      body{
         raw
       }
       image {
@@ -48,10 +45,10 @@ query SharedResourceQuery {
           width: 3880
         )
       }
-      
+    
      
     }
   }
 
-  }
+}
 `
