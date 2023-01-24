@@ -7,6 +7,7 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import About from '../components/about'
+import SideNavigation from '../components/sidenavigation'
 
 
 class SymposiumPage extends React.Component {
@@ -14,13 +15,14 @@ class SymposiumPage extends React.Component {
       const [symposium]  = get(this, 'props.data.allContentfulSymposium.nodes')
       return (
             <Layout location={this.props.location}>
+                  
               <Seo title={symposium.title} />
               <About title={symposium.title}
               subtitle={symposium.subtitle}
               content={symposium.body}  
               image={symposium.image.gatsbyImage}
               />
-         
+        
             </Layout>
             )
         

@@ -16,7 +16,7 @@ class RootIndex extends React.Component {
  
   render() {
 
-    const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
+    //const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
     const mentor = get(this, 'props.data.allContentfulMentors.nodes')
     const person = get(this, 'props.data.allContentfulPerson.nodes')
     const [author] = get(this, 'props.data.allContentfulIntroduction.nodes')
@@ -27,21 +27,15 @@ class RootIndex extends React.Component {
       <IndexContent 
       image={author.heroImage.gatsbyImage} />
         <Iteration id="1" 
-        name=" Research Group Participants" 
-
-       
+       name=" Research Group Participa5nts" 
         link4name="Mentors + Speakers" 
- 
         link5name="Participants Projects"  
         participants={person}
         mentors={mentor}
-    
         />
         <Iteration id="2" 
         name="Symposium" 
-   
         link="/symposium" />
-           
 
         <Iteration id="3" 
         name="Workshops" 
@@ -135,6 +129,7 @@ export const pageQuery = graphql`
               layout: CONSTRAINED
               placeholder: BLURRED
               width: 3880
+      
             )
           }
         }

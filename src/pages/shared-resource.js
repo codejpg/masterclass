@@ -7,6 +7,7 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import About from '../components/about'
+import SharedResourceContent from '../components/shared-resource-content'
 
 import Container from '../components/container'
 let title, image, subtitle, body;
@@ -16,14 +17,15 @@ class SharedResourcePage extends React.Component {
       return (
             <Layout location={this.props.location}>
             
-            
+
+  
             
               <About title={about.title}
               image={about.image.gatsbyImage ? about.image.gatsbyImage : null}
               subtitle={about.subtitle}  
-              content={about.body}  
+              //content={about.body}  
               />
-         
+                   <SharedResourceContent></SharedResourceContent>
             </Layout>
             )
         

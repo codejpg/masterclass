@@ -7,19 +7,14 @@
   flex-wrap: wrap;
   left: 0;
   justify-content: flex-start 
-
 }
 
 .image {
-  /*
-    Ensure golden ratio for the hero size while limiting it to some extend to
-    the viewport width
-  */
   height: 61.8vh;
-  max-height: 560px;
-  width: 60vw;
+  max-height: 5060px;
+  width: 100vw;
   margin: var(--size-gutter);
-  
+  padding: 0;
 }
 
 .details {
@@ -57,7 +52,7 @@
 
 @media (min-width: 768px) {
   .hero {
-    padding-top: 0 0 var(--size-gutter);
+    padding: 0 0 var(--size-gutter);
   }
 
   .details {
@@ -71,7 +66,7 @@
 
 @media (min-width: 1024px) {
   .image {
-    width: 80vw;
+    width: 100vw;
   }
 
   .details {

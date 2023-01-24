@@ -4,6 +4,7 @@ import './variables.css'
 import './global.css'
 import Seo from './seo'
 import Navigation from './navigation'
+
 import Footer from './footer'
 import Cursor from './cursor'
 
@@ -31,6 +32,7 @@ class Template extends React.Component {
      
         <Seo />
         <Navigation textColor={false} />
+
         <div className="site">
         <main className="site-content">{children}</main>
         {/*

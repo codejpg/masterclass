@@ -131,7 +131,7 @@ query PersonBySlug(
             raw
           }
             heroImage {
-                gatsbyImage(width: 100)
+                gatsbyImage(width: 1000)
             }
             title
             slug

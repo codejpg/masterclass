@@ -101,6 +101,7 @@ div:hover > #hov{
     flex-direction: column;
 
 }
+
   .site-content {
     flex: 1;
     padding-top: var(--space-3xl);
