@@ -1,3 +1,4 @@
+
 exports.onClientEntry = () => {
 
     if( window.location.pathname !== '/maintenance' && window.location.pathname !== '/maintenance/'){
@@ -19,3 +20,4 @@ exports.onClientEntry = () => {
     }
  
   }
+  

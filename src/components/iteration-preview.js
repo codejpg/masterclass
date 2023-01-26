@@ -71,7 +71,7 @@ render(){
       </Menu>: null}
 
       {this.props.mentors ? <ParticipantList className="menu" active={this.state.isVisible3} >
-      <ParticipantsPreview2 className="menu"  posts={this.props.mentors} /> 
+      <ParticipantsPreview2 posts={this.props.mentors} /> 
   </ParticipantList>: null}
 
       {this.props.link5name ? <Menu className="menu" active={this.state.isVisible} onClick={this.toggleVisible2} >
@@ -79,7 +79,8 @@ render(){
       </Menu>: null}
     
     <ParticipantList className="menu" active={this.state.isVisible2} >
-        <ParticipantsPreview className="menu"  posts={this.props.participants} /> 
+        <ParticipantsPreview   posts={this.props.participants} /> 
+    
       </ParticipantList>
 
     

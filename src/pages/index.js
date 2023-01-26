@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import { useEffect } from 'react'
 
 import IndexLayout from '../components/index-layout'
 import IndexContent from '../components/index-content'
@@ -15,7 +16,7 @@ class RootIndex extends React.Component {
     const mentor = get(this, 'props.data.allContentfulMentors.nodes')
     const person = get(this, 'props.data.allContentfulPerson.nodes')
     const [author] = get(this, 'props.data.allContentfulIntroduction.nodes')
-
+    console.log(person)
     return (
    
       <IndexLayout location={this.props.location}>

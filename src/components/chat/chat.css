@@ -1,0 +1,40 @@
+.sender {
+    flex: 2;
+    display: inline-flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    justify-items: flex-end;
+}
+
+.sender .bubble{
+    background-color: #61dafb;
+}
+
+.receiver {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    flex: 1 1 auto;
+}
+.bubble{
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+.receiver .bubble{
+    background-color: #d5d9e1;
+}
+
+.comment {
+    background-color: #ff0000;
+}
+.chatContainer{
+    margin: var(--size-gutter);
+    padding: var(--size-gutter);
+}
+.chatBox{
+    margin: var(--space-xl);
+    display: flex;
+    width: min-content;
+
+}

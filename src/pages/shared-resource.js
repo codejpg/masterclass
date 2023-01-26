@@ -7,7 +7,7 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import About from '../components/about'
-import SharedResourceContent from '../components/shared-resource-content'
+import Chat from '../components/chat/chat'
 
 import Container from '../components/container'
 let title, image, subtitle, body;
@@ -25,7 +25,7 @@ class SharedResourcePage extends React.Component {
               subtitle={about.subtitle}  
               //content={about.body}  
               />
-                   <SharedResourceContent></SharedResourceContent>
+                   <Chat></Chat>
             </Layout>
             )
         

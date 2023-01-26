@@ -1,29 +1,20 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
-import Container from './container'
-import Tags from './tags'
 import * as styles from './participant-preview.css'
 
 const ParticipantsPreview = ({ posts }) => {
   if (!posts) return null
-  if (!Array.isArray(posts)) return null
+
  
 
   return (
     
     <>
-
-
       <ul className={styles.nameList}>
-   
-        
         {posts.map((post) => {
           return (
          <>
- 
             <li key={post.slug}>
              
               <div className={styles.container}>
