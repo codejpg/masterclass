@@ -2,14 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
-import Layout from '../components/layout'
-import Iteration from '../components/iteration-preview'
-import Hero from '../components/hero'
-import ArticlePreview from '../components/article-preview'
-import ArtistPreview from '../components/artist-preview'
 import IndexLayout from '../components/index-layout'
 import IndexContent from '../components/index-content'
-import ParticipantsPreview from '../components/participants-preview2';
+import Iteration from '../components/iteration-preview'
 
 
 class RootIndex extends React.Component {
@@ -27,7 +22,7 @@ class RootIndex extends React.Component {
       <IndexContent 
       image={author.heroImage.gatsbyImage} />
         <Iteration id="1" 
-       name=" Research Group Participa5nts" 
+       name=" Research Group Participants" 
         link4name="Mentors + Speakers" 
         link5name="Participants Projects"  
         participants={person}

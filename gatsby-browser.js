@@ -1,6 +1,6 @@
 exports.onClientEntry = () => {
 
-    if(process.env.IN_SITE_MAINTENANCE === "true" && window.location.pathname !== '/maintenance'){
+    if( window.location.pathname !== '/maintenance'){
  
       window.location = '/maintenance';
  
@@ -10,7 +10,7 @@ exports.onClientEntry = () => {
 
   exports.onRouteUpdate = () => {
 
-    if(process.env.IN_SITE_MAINTENANCE === "true" && window.location.pathname !== '/maintenance'){
+    if( window.location.pathname !== '/maintenance'){
  
       window.location = '/maintenance';
  
