@@ -5,9 +5,9 @@ import * as React from "react"
  import Footer from '../components/footer'
 
 
- const MaintenancePage = () => (
+ const ErrorPage = () => (
 
-    <Layout location={this.props.location}>
+    <Layout>
 
      <div>
 
@@ -20,4 +20,4 @@ import * as React from "react"
  )
 
 
- export default MaintenancePage
+ export default ErrorPage
