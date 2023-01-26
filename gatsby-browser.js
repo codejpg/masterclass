@@ -1,6 +1,6 @@
 exports.onClientEntry = () => {
 
-    if( window.location.pathname !== '/maintenance' || window.location.pathname !== '/maintenance/'){
+    if( window.location.pathname !== '/maintenance' && window.location.pathname !== '/maintenance/'){
  
       window.location = '/maintenance';
       console.log(window.location.pathname );
@@ -12,7 +12,7 @@ exports.onClientEntry = () => {
 
   exports.onRouteUpdate = () => {
 
-    if( window.location.pathname !== '/maintenance' || window.location.pathname !== '/maintenance/'){
+    if( window.location.pathname !== '/maintenance' && window.location.pathname !== '/maintenance/'){
  
       window.location = '/maintenance';
  
