@@ -197,3 +197,23 @@ a:hover ~ #cursor,a:hover + #cursor {
 .pageTitle{
   margin-left: var(--size-gutter);
 }
+
+
+.maintenanceImg{
+  position: absolute;
+  top:0;
+  height: 100%;
+  object-fit: fill;
+  z-index: -1;
+}
+
+.maintenanceContainer{
+  position: absolute;
+  height: 100%;
+}
+
+.maintenanceContainer h1{
+  color: white;
+  position: absolute;
+  padding-left: var(--size-gutter);
+}

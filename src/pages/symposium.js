@@ -7,7 +7,6 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import About from '../components/about'
-import SideNavigation from '../components/sidenavigation'
 
 
 class SymposiumPage extends React.Component {
