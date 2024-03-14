@@ -2,14 +2,12 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
-import { BLOCKS, INLINES } from '@contentful/rich-text-types'
+import { BLOCKS } from '@contentful/rich-text-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
+import Hero from '../components/hero/hero'
 import Tags from '../components/tags'
 import * as styles from './portfolio-post.module.css'
 
@@ -19,30 +17,18 @@ class PortfolioPostTemplate extends React.Component {
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
 
-
-    
     const options = {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const { gatsbyImage, description } = node.data.target
-        return (
-           <GatsbyImage
-              image={getImage(gatsbyImage)}
-              alt={description}
-           />
-         )
+          const { gatsbyImage, description } = node.data.target
+          return <GatsbyImage image={getImage(gatsbyImage)} alt={description} />
         },
-        
       },
-    };
+    }
 
     return (
       <Layout location={this.props.location}>
-   
-        <Seo
-          title={post.title}
-          image={`http:${post.heroImage.resize.src}`}
-        />
+        <Seo title={post.title} image={`http:${post.heroImage.resize.src}`} />
         <Hero
           image={post.heroImage?.gatsbyImage}
           title={post.title}
@@ -56,16 +42,20 @@ class PortfolioPostTemplate extends React.Component {
             </div>
             <div className={styles.artistBox}>
               <span className={styles.meta}>
-              <Link to={`/participants/${post.artist?.slug}`} ><h1>{post.artist?.name}</h1> </Link>
-              {post.artist?.title} &middot;{' '}
-              <a href={post.artist?.website} target="_blank">
-              {post.artist?.website}</a>
+                <Link to={`/participants/${post.artist?.slug}`}>
+                  <h1>{post.artist?.name}</h1>{' '}
+                </Link>
+                {post.artist?.title} &middot;{' '}
+                <a href={post.artist?.website} target="_blank" rel="noreferrer">
+                  {post.artist?.website}
+                </a>
               </span>
-          
-            <div className={styles.bio}>
-              {post.artist.shortBio?.raw && renderRichText(post.artist.shortBio, options)}
+
+              <div className={styles.bio}>
+                {post.artist.shortBio?.raw &&
+                  renderRichText(post.artist.shortBio, options)}
+              </div>
             </div>
-    </div>
             <Tags tags={post.tags} />
             {(previous || next) && (
               <nav>
@@ -88,7 +78,6 @@ class PortfolioPostTemplate extends React.Component {
               </nav>
             )}
           </div>
-          
         </div>
       </Layout>
     )
@@ -115,7 +104,7 @@ export const pageQuery = graphql`
           src
         }
       }
-    
+
       body {
         raw
       }
@@ -128,7 +117,6 @@ export const pageQuery = graphql`
         website
         slug
       }
-      
     }
     previous: contentfulPortfolioPost(slug: { eq: $previousPostSlug }) {
       slug

@@ -3,23 +3,11 @@ import React from 'react'
 import './variables.css'
 import './global.css'
 import Seo from './seo'
-import Navigation from './navigation'
+import Navigation from './navigation/navigation'
 
-import Footer from './footer'
-import Cursor from './cursor'
 
-const isBrowser = typeof window !== "undefined";
-function getxPosition(e) {
-  if (isBrowser) {
-    return e.clientX / window.innerWidth;
-  }
-}
+//const isBrowser = typeof window !== "undefined";
 
-function getyPosition(e) {
-  if (isBrowser) {
-    return e.clientY / window.innerHeight;
-  }
-}
 class Template extends React.Component {
 
 

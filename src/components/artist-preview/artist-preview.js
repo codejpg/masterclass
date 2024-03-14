@@ -5,7 +5,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 //import {useState, useRef} from 'react';
 
 
-import Container from './container'
+import Container from '../container'
 //import Tags from './tags'
 import * as styles from './artist-preview.module.css'
 

@@ -1,18 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
+
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
-import About from '../components/about'
+import About from '../components/about/about'
+
+import Footer from '../components/footer/footer'
 
 
-import Container from '../components/container'
-import Footer from '../components/footer'
-
-let title, subtitle, description;
 class AboutPage extends React.Component {
     render() {
       const [about]  = get(this, 'props.data.allContentfulAbout.nodes')

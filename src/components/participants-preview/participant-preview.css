@@ -1,0 +1,62 @@
+.name-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr));
+  grid-gap: var(--space-null);
+  list-style-type: none;
+}
+ul {
+  list-style-type: none;
+}
+
+.title {
+  display: inline-block;
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-xs);
+  margin-top: var(--space-lg);
+  border-bottom: 1.5px solid transparent;
+}
+
+.content {
+  background: var(--background);
+  float: left;
+  left: 0;
+  bottom: 0;
+  max-width: 40rem;
+  width: 85%;
+  height: 30%;
+  padding: var(--space-2xl) var(--size-gutter) 0;
+  position: absolute;
+  z-index: 1000;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.link {
+  text-decoration: none;
+}
+
+.link:hover .title {
+  border-bottom-color: var(--primary);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  /*
+      Ensure golden ratio for the hero size while limiting it to some extend to
+      the viewport width
+    */
+  height: 61.8vh;
+  max-height: 560px;
+  width: 100%;
+}

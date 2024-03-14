@@ -1,17 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import get from 'lodash/get'
+//import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
-import ArtistPreview from '../components/artist-preview'
-import ParticipantPreview from '../components/participants-preview'
+import Hero from '../components/hero/hero'
 
 class ParticipantIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
-    const person = get(this, 'props.data.allContentfulPerson.nodes')
+    //const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
+    //const person = get(this, 'props.data.allContentfulPerson.nodes')
     return (
       <Layout location={this.props.location}>
         <Seo title="Participants" />
@@ -27,7 +25,7 @@ export default ParticipantIndex
 
 export const pageQuery = graphql`
   query ArtistIndexQuery {
-    allContentfulPortfolioPost{
+    allContentfulPortfolioPost {
       nodes {
         heroImage {
           gatsbyImage(
@@ -57,7 +55,7 @@ export const pageQuery = graphql`
         project {
           heroImage {
             gatsbyImage(width: 100)
-         }
+          }
           title
           slug
         }

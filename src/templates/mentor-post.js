@@ -2,15 +2,10 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
-import { BLOCKS, INLINES } from '@contentful/rich-text-types'
+import { BLOCKS } from '@contentful/rich-text-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-
-import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
-//import Tags from '../components/tags'
 import * as styles from './portfolio-post.module.css'
 
 class MentorPostTemplate extends React.Component {
@@ -24,39 +19,32 @@ class MentorPostTemplate extends React.Component {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (node) => {
           const { gatsbyImage, description } = node.data.target
-          return (
-            <GatsbyImage
-              image={getImage(gatsbyImage)}
-              alt={description}
-            />
-          )
+          return <GatsbyImage image={getImage(gatsbyImage)} alt={description} />
         },
-
       },
-    };
+    }
 
     return (
       <Layout location={this.props.location}>
-
- 
         <div className={styles.container}>
           <div className={styles.article}>
-            
-      
+            <div className={styles.artistBox}>
+              <span className={styles.meta}>
+                <Link to={`/mentors/${person?.slug}`}>
+                  <h1>{person?.name}</h1>{' '}
+                </Link>
+                {person?.title} &middot;{' '}
+                <a href={person?.website} target="_blank" rel="noreferrer">
+                  {person?.website}
+                </a>
+              </span>
 
-          <div className={styles.artistBox}>
-            <span className={styles.meta}>
-              <Link to={`/mentors/${person?.slug}`} ><h1>{person?.name}</h1> </Link>
-              {person?.title} &middot;{' '}
-              <a href={person?.website} target="_blank">
-                {person?.website}</a>
-            </span>
+              <div className={styles.bio}>
+                {person.shortBio?.raw &&
+                  renderRichText(person.shortBio, options)}
+              </div>
 
-            <div className={styles.bio}>
-              {person.shortBio?.raw && renderRichText(person.shortBio, options)}
-            </div>
-
-{/*
+              {/*
             {person.project?.slug && <h3>Research Project</h3>}
             <Link to={`/artists/${person.project?.slug}`}>
               <p>{person.project?.title} </p>
@@ -65,9 +53,7 @@ class MentorPostTemplate extends React.Component {
               />
             </Link>
              */}
-
-
-</div>
+            </div>
 
             {(previous || next) && (
               <nav>
@@ -90,7 +76,6 @@ class MentorPostTemplate extends React.Component {
               </nav>
             )}
           </div>
-
         </div>
       </Layout>
     )
@@ -100,31 +85,29 @@ class MentorPostTemplate extends React.Component {
 export default MentorPostTemplate
 
 export const pageQuery = graphql`
-query MentorsBySlug(
+  query MentorsBySlug(
     $slug: String!
     $previousPostSlug: String
     $nextPostSlug: String
   ) {
     contentfulMentors(slug: { eq: $slug }) {
-        name
-        shortBio {
-            raw
-        }
-        title
-        website
-        slug
+      name
+      shortBio {
+        raw
       }
-      previous: contentfulMentors(slug: { eq: $previousPostSlug }) {
-        slug
-        title
-        name
-      }
-      next: contentfulMentors(slug: { eq: $nextPostSlug }) {
-        slug
-        title
-        name
-      }
-
+      title
+      website
+      slug
     }
-    
+    previous: contentfulMentors(slug: { eq: $previousPostSlug }) {
+      slug
+      title
+      name
+    }
+    next: contentfulMentors(slug: { eq: $nextPostSlug }) {
+      slug
+      title
+      name
+    }
+  }
 `

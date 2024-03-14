@@ -2,15 +2,12 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
-import { BLOCKS, INLINES } from '@contentful/rich-text-types'
+import { BLOCKS } from '@contentful/rich-text-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
-//import Tags from '../components/tags'
+import Hero from '../components/hero/hero'
 import * as styles from './portfolio-post.module.css'
 
 class PersonPostTemplate extends React.Component {
@@ -25,20 +22,13 @@ class PersonPostTemplate extends React.Component {
       renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: (node) => {
           const { gatsbyImage, description } = node.data.target
-          return (
-            <GatsbyImage
-              image={getImage(gatsbyImage)}
-              alt={description}
-            />
-          )
+          return <GatsbyImage image={getImage(gatsbyImage)} alt={description} />
         },
-
       },
-    };
+    }
 
     return (
       <Layout location={this.props.location}>
-
         <Seo
           title={portfolio.title}
           image={`http:${portfolio.heroImage.resize.src}`}
@@ -49,26 +39,33 @@ class PersonPostTemplate extends React.Component {
           //subtitle={post.artist?.name}
           link={portfolio.artist?.slug}
         />
+
         <div className={styles.container}>
           <div className={styles.article}>
             <div className={styles.body}>
               {post.body?.raw && renderRichText(post.body, options)}
             </div>
-      
+            {/* <div dangerouslySetInnerHTML={{__html: post.childrenContentfulPortfolioPostMarkdownTextNode.html,
+            }}
+            />*/}
 
-          <div className={styles.artistBox}>
-            <span className={styles.meta}>
-              <Link to={`/participants/${person?.slug}`} ><h1>{person?.name}</h1> </Link>
-              {person?.title} &middot;{' '}
-              <a href={person?.website} target="_blank">
-                {person?.website}</a>
-            </span>
+            <div className={styles.artistBox}>
+              <span className={styles.meta}>
+                <Link to={`/participants/${person?.slug}`}>
+                  <h1>{person?.name}</h1>{' '}
+                </Link>
+                {person?.title} &middot;{' '}
+                <a href={person?.website} target="_blank" rel="noreferrer">
+                  {person?.website}
+                </a>
+              </span>
 
-            <div className={styles.bio}>
-              {person.shortBio?.raw && renderRichText(person.shortBio, options)}
-            </div>
+              <div className={styles.bio}>
+                {person.shortBio?.raw &&
+                  renderRichText(person.shortBio, options)}
+              </div>
 
-{/*
+              {/*
             {person.project?.slug && <h3>Research Project</h3>}
             <Link to={`/artists/${person.project?.slug}`}>
               <p>{person.project?.title} </p>
@@ -77,9 +74,7 @@ class PersonPostTemplate extends React.Component {
               />
             </Link>
              */}
-
-
-</div>
+            </div>
 
             {(previous || next) && (
               <nav>
@@ -102,7 +97,6 @@ class PersonPostTemplate extends React.Component {
               </nav>
             )}
           </div>
-
         </div>
       </Layout>
     )
@@ -112,60 +106,60 @@ class PersonPostTemplate extends React.Component {
 export default PersonPostTemplate
 
 export const pageQuery = graphql`
-query PersonBySlug(
+  query PersonBySlug(
     $slug: String!
     $previousPostSlug: String
     $nextPostSlug: String
   ) {
     contentfulPerson(slug: { eq: $slug }) {
-        name
-        shortBio {
-            raw
-        }
-        title
-        website
-        slug
-        
-        project {
-          body {
-            raw
-          }
-            heroImage {
-                gatsbyImage(width: 1000)
-            }
-            title
-            slug
-            }
-            
-         
-         
-        
+      name
+      shortBio {
+        raw
       }
-      previous: contentfulPerson(slug: { eq: $previousPostSlug }) {
-        slug
-        title
-        name
-      }
-      next: contentfulPerson(slug: { eq: $nextPostSlug }) {
-        slug
-        title
-        name
-      }
-      contentfulPortfolioPost {
-        slug
-        title
-        artist {
-          name
-        }
+      title
+      website
+      slug
+
+      project {
         body {
           raw
         }
         heroImage {
-          gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
-          resize(height: 630, width: 1200) {
-            src
-          }
+          gatsbyImage(width: 1000)
         }
+        title
+        slug
+      }
     }
+    previous: contentfulPerson(slug: { eq: $previousPostSlug }) {
+      slug
+      title
+      name
     }
+    next: contentfulPerson(slug: { eq: $nextPostSlug }) {
+      slug
+      title
+      name
+    }
+    contentfulPortfolioPost {
+      slug
+      title
+      artist {
+        name
+      }
+      body {
+        raw
+      }
+
+      childContentfulPortfolioPostMarkdownTextNode {
+        markdown
+      }
+      heroImage {
+        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
+        resize(height: 630, width: 1200) {
+          src
+        }
+      }
+    }
+  }
 `

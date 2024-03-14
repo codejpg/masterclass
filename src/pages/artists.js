@@ -4,8 +4,8 @@ import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
-import ArtistPreview from '../components/artist-preview'
+import Hero from '../components/hero/hero'
+import ArtistPreview from '../components/artist-preview/artist-preview'
 
 class ArtistIndex extends React.Component {
   render() {
@@ -25,7 +25,7 @@ export default ArtistIndex
 
 export const pageQuery = graphql`
   query ArtistIndexQuery {
-    allContentfulPortfolioPost{
+    allContentfulPortfolioPost {
       nodes {
         heroImage {
           gatsbyImage(

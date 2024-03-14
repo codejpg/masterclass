@@ -3,7 +3,6 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // Define a template for blog post
 
   const portfolioPost = path.resolve('./src/templates/portfolio-post.js')
   const personPost = path.resolve('./src/templates/person-post.js')

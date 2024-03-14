@@ -1,13 +1,8 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
-  "keywords": [
-    "contentful",
-    "gatsby",
-    "static",
-    "ssg"
-  ],
-  "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
+  "name": "Working With Waste",
+  "description": "Collection of an artistic research project on working with waste.",
+  "keywords": ["contentful", "gatsby", "static", "ssg"],
+  "repository": "https://github.com/codejpg/masterclass",
   "success_url": "/",
   "buildpacks": [
     {

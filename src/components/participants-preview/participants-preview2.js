@@ -1,29 +1,23 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
-import Container from './container'
-import Tags from './tags'
 import * as styles from './participant-preview.css'
 
 const ParticipantsPreview = ({ posts }) => {
   if (!posts) return null
   if (!Array.isArray(posts)) return null
- 
 
   return (
-    
     <>
-      <ul className={styles.nameList}>    
+      <ul className={styles.nameList}>
         {posts.map((post) => {
           return (
-         <>
-            <li key={post.slug}> 
-              <div className={styles.container}>
-                <Link to={`/mentors/${post.slug}`} className={styles.link} >
-                <span className={styles.content}>{post.name}</span>
-          {/*
+            <>
+              <li key={post.slug}>
+                <div className={styles.container}>
+                  <Link to={`/mentors/${post.slug}`} className={styles.link}>
+                    <span className={styles.content}>{post.name}</span>
+                    {/*
               <GatsbyImage onMouseOver={handleHover(1)} className={styles.image} alt="" image={post.heroImage.gatsbyImage} />
   
     
@@ -33,11 +27,10 @@ const ParticipantsPreview = ({ posts }) => {
                 {post.description?.raw && renderRichText(post.description)}
               </div>
           */}
-                </Link>
-              <div className={styles.meta}>
-              </div>
-              </div>
-            </li>
+                  </Link>
+                  <div className={styles.meta}></div>
+                </div>
+              </li>
             </>
           )
         })}
@@ -47,4 +40,3 @@ const ParticipantsPreview = ({ posts }) => {
 }
 
 export default ParticipantsPreview
- 

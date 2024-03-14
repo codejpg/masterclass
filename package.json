@@ -1,11 +1,11 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "working-with-waste",
+  "description": "Working With Waste - Masterclass",
   "private": true,
   "version": "0.0.1",
   "author": "Contentful <opensource@contentful.com>",
   "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+    "url": "https://workingwithwaste.com/"
   },
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
@@ -32,7 +32,7 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+  "homepage": "https://workingwithwaste.com/",
   "keywords": [
     "gatsby",
     "contentful",
@@ -42,7 +42,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+    "url": "https://workingwithwaste.com/"
   },
   "scripts": {
     "dev": "gatsby develop",

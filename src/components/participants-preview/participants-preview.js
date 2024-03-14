@@ -6,21 +6,20 @@ import * as styles from './participant-preview.css'
 const ParticipantsPreview = ({ posts }) => {
   if (!posts) return null
 
- 
-
   return (
-    
     <>
       <ul className={styles.nameList}>
         {posts.map((post) => {
           return (
-         <>
-            <li key={post.slug}>
-             
-              <div className={styles.container}>
-              <Link to={`/participants/${post.slug}`} className={styles.link} >
-              <span className={styles.content}>{post.name}</span>
-          {/*
+            <>
+              <li key={post.slug}>
+                <div className={styles.container}>
+                  <Link
+                    to={`/participants/${post.slug}`}
+                    className={styles.link}
+                  >
+                    <span className={styles.content}>{post.name}</span>
+                    {/*
               <GatsbyImage onMouseOver={handleHover(1)} className={styles.image} alt="" image={post.heroImage.gatsbyImage} />
   
     
@@ -30,11 +29,10 @@ const ParticipantsPreview = ({ posts }) => {
                 {post.description?.raw && renderRichText(post.description)}
               </div>
           */}
-              </Link>
-              <div className={styles.meta}>
-              </div>
-              </div>
-            </li>
+                  </Link>
+                  <div className={styles.meta}></div>
+                </div>
+              </li>
             </>
           )
         })}
@@ -44,4 +42,3 @@ const ParticipantsPreview = ({ posts }) => {
 }
 
 export default ParticipantsPreview
- 

@@ -1,63 +1,48 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import { useEffect } from 'react'
 
-import IndexLayout from '../components/index-layout'
-import IndexContent from '../components/index-content'
-import Iteration from '../components/iteration-preview'
-
+import IndexLayout from '../components/index/index-layout'
+import IndexContent from '../components/index/index-content'
+import Iteration from '../components/index/iteration/iteration-preview'
 
 class RootIndex extends React.Component {
- 
   render() {
-
     //const posts = get(this, 'props.data.allContentfulPortfolioPost.nodes')
     const mentor = get(this, 'props.data.allContentfulMentors.nodes')
     const person = get(this, 'props.data.allContentfulPerson.nodes')
     const [author] = get(this, 'props.data.allContentfulIntroduction.nodes')
     console.log(person)
     return (
-   
       <IndexLayout location={this.props.location}>
-      <IndexContent 
-      image={author.heroImage.gatsbyImage} />
-        <Iteration id="1" 
-       name=" Research Group Participants" 
-        link4name="Mentors + Speakers" 
-        link5name="Participants Projects"  
-        participants={person}
-        mentors={mentor}
+        <IndexContent image={author.heroImage.gatsbyImage} />
+        <Iteration
+          id="1"
+          name=" Research Group Participants"
+          link4name="Mentors + Speakers"
+          link5name="Participants Projects"
+          participants={person}
+          mentors={mentor}
         />
-        <Iteration id="2" 
-        name="Symposium" 
-        link="/symposium" />
+        <Iteration id="2" name="Symposium" link="/symposium" />
 
-        <Iteration id="3" 
-        name="Workshops" 
-        link="/shared-resource" />             
+        <Iteration id="3" name="Workshops" link="/shared-resource" />
 
-      <Iteration id="4" 
-        name="Virtual Roundtable" 
-        link="/virtual-roundtable" />
+        <Iteration
+          id="4"
+          name="Virtual Roundtable"
+          link="/virtual-roundtable"
+        />
 
-        <Iteration id="5" 
-        name="Reading list "
-        link="/readinglist"  /> 
+        <Iteration id="5" name="Reading list " link="/readinglist" />
 
-        <Iteration id="6" 
-        name="Exhibitions" 
-        link="/exhibitions" /> 
-         
-         <Iteration id="7" 
-        name="Publications" 
-        link="/publications" />   
-       
-       {/* <ArtistPreview  posts={posts} />*/}
+        <Iteration id="6" name="Exhibitions" link="/exhibitions" />
 
+        <Iteration id="7" name="Publications" link="/publications" />
+
+        {/* <ArtistPreview  posts={posts} />*/}
       </IndexLayout>
- 
-    )       
+    )
   }
 }
 
@@ -92,45 +77,37 @@ export const pageQuery = graphql`
         project {
           heroImage {
             gatsbyImage(width: 100)
-         }
+          }
           title
           slug
         }
       }
     }
-    allContentfulMentors{
+    allContentfulMentors {
       nodes {
         name
         shortBio {
           raw
         }
         title
-     
+
         contentful_id
         slug
-
       }
     }
 
-      allContentfulIntroduction (
-        filter: { contentful_id: { eq: "4HNowKy0j4VYNuQ6MLUk7G" } }
-      ){
-        nodes {
-          title
-          description {
-            raw
-          }
-          heroImage {
-            gatsbyImage(
-              layout: CONSTRAINED
-              placeholder: BLURRED
-              width: 3880
-      
-            )
-          }
+    allContentfulIntroduction(
+      filter: { contentful_id: { eq: "4HNowKy0j4VYNuQ6MLUk7G" } }
+    ) {
+      nodes {
+        title
+        description {
+          raw
+        }
+        heroImage {
+          gatsbyImage(layout: CONSTRAINED, placeholder: BLURRED, width: 3880)
         }
       }
-    
-    
+    }
   }
 `
